@@ -1,3 +1,63 @@
+.logosapo{
+    max-height: 60px;
+    max-width: 60px;
+    background-color: white;
+    border-radius: 500px;
+    box-shadow: 0px 2px 6px rgb(56, 56, 56);
+}
+
+.izqbotones{
+    text-align: left;
+    margin-left: 2rem !important;
+}
+
+.botonusuario{
+    background-color: #00a6ff;
+    color: white;
+    border: white;
+    height: 130px;
+    width: 130px;
+    border:  3px solid transparent;
+    box-shadow: 0px 2px 6px rgb(0, 0, 0);
+    transition: all 0.2s ease;
+    border-radius: 100%;
+}
+
+.botonusuario:hover{
+    background-color: white;
+    color:  #00a6ff;
+    border:  3px solid #00a6ff;
+    height: 130px;
+    width: 130px;
+    box-shadow: 0px 2px 6px rgb(0, 0, 0);
+    transition: all 0.2s ease;
+    border-radius: 100%;
+}
+
+.bi-pc-display-horizontal{
+    font-size: 2rem;
+    color: rgb(235, 88, 88);
+}
+
+.bi-motherboard-fill{
+    font-size: 2rem;
+    color: rgb(112, 207, 112);
+}
+
+.bi-cpu-fill{
+    font-size: 2rem;
+    color: rgb(167, 167, 255);
+}
+
+.bi-pc{
+    font-size: 2rem;
+    color: rgb(235, 235, 127)
+}
+
+.skill{
+    margin-bottom: 0rem !important;
+}
+
 .subir{
     margin-top: -2rem !important;
 }
@@ -78,7 +138,7 @@
 }
 
 .datosinteres{
-    max-height: 29rem;
+    max-height: 35rem;
 }
 
 .negrita{
@@ -226,7 +286,6 @@ background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 0%, rgba(
     text-align: left;
 }
 
-.bi-whatsapp{
-    font-size: 2rem;
-    color: green;
+.bi-browser-edge{
+    color: rgb(61, 211, 161);
 }

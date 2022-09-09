@@ -1,5 +1,9 @@
-*{
-    
+.logosapo{
+    max-height: 60px;
+    max-width: 60px;
+    background-color: white;
+    border-radius: 500px;
+    box-shadow: 0px 2px 6px rgb(56, 56, 56);
 }
 
 body{

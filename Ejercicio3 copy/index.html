@@ -17,13 +17,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <!-- Iconos -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
 <body>
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">T-Interviews</a>
+      <a class="navbar-brand" href="#"><img src="../Ejercicio3/imagenes/Logo.png" alt="" class="logosapo"> T-Interviews</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,16 +42,16 @@
               <i class="bi bi-gear-fill"></i> Servicios
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Entrevistas</a></li>
-              <li><a class="dropdown-item" href="#">Horario</a></li>
+              <li><a class="dropdown-item" href="#">Posiciones</a></li>
+              <li><a class="dropdown-item" href="#">Skills</a></li>
               <li>
                 <hr class="dropdown-divider" />
               </li>
-              <li><a class="dropdown-item" href="#">Formación</a></li>
+              <li><a class="dropdown-item" href="#">Mi CV</a></li>
             </ul>
           </li>
           <li class="nav-item borde">
-            <a class="nav-link active" href="#"><i class="bi bi-file-earmark-person-fill"></i> Portfolio</a>
+            <a class="nav-link active" href="#"><i class="bi bi-file-earmark-person-fill"></i> Mi CV</a>
           </li>
           <li class="nav-item borde">
             <a class="nav-link active" href="#"><i class="bi bi-telephone-fill"></i> Contacto</a>
@@ -92,35 +92,59 @@
 
         <div class="card mt-4 mb-4 text-center" style="height: 20rem;">
           <div class="card-body">
-            <i class="bi bi-person-circle"></i>
+            <button type="button" class="botonusuario mb-3"><i class="bi bi-person-circle"></i></button>
             <h5 class="card-title">Username</h5>
             <h6 class="card-subtitle mb-2 text-muted">Full Stack Developer</h6>
             <p class="card-text">Salou, Spain</p>
             <button class="btn"><i class="bi bi-linkedin"></i> LinkedIn</button>
-            <button class="btn"><i class="bi bi-linkedin"></i> Website</button>
+            <button class="btn"><i class="bi bi-browser-edge"></i> Website</button>
           </div>
         </div>
-        <div class="card mt-4 mb-4 datosinteres" style="height: 29rem;">
+        <div class="card mt-4 mb-4 datosinteres" style="height: 29.4rem;">
           <div class="card-body">
 
-            <div class="container text-center">
-              <div class="row">
+            <div class="container">
+              <div class="row text">
                 <div class="col">
-                  <div class="negritadiv mt-3"><i class="bi bi-linkedin"></i> Website</div>
-                  <div class="negritadiv mt-4"><i class="bi bi-linkedin"></i> Telefono</div>
-                  <div class="negritadiv mt-4"><i class="bi bi-linkedin"></i> CV</div>
-                  <div class="negritadiv mt-4"><i class="bi bi-linkedin"></i> DNI</div>
-                  <div class="negritadiv mt-4"><i class="bi bi-linkedin"></i> Inicio</div>
+                  <p class="izq skill mt-3 text-center"><i class="bi bi-cpu-fill"></i></p>
+                  <p class="izq skill mt-2 text-center"><i class="bi bi-motherboard-fill"></i></p>
+                  <p class="izq skill mt-2 text-center"><i class="bi bi-pc-display-horizontal"></i></p>
+                  <p class="izq skill mt-2 text-center"><i class="bi bi-pc"></i></p>
+                  <p class="izq skill mt-2 text-center"><i class="bi bi-cpu-fill"></i></p>
+                  <p class="izq skill mt-2 text-center"><i class="bi bi-motherboard-fill"></i></p>
+                  <p class="izq skill mt-2 text-center"><i class="bi bi-pc-display-horizontal"></i></p>
                 </div>
-                <div class="col">
+                <div class="col-10">
+                  <p class="izq skill mt-3">Skill_1</p>
+                  <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="izq skill">Skill_2</p>
+                  <div class="progress mb-3">
+                    <div class="progress-bar " role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="izq skill">Skill_3</p>
+                  <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="izq skill">Skill_4</p>
+                  <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="izq skill">Skill_5</p>
+                  <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="izq skill">Skill_6</p>
+                  <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="izq skill">Skill_7</p>
+                  <div class="progress mb-3">
+                    <div class="progress-bar " role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
                 </div>
-                <div class="col">
-                  <div class="grisdiv mt-3">https://...</div>
-                  <div class="grisdiv mt-4">123456789</div>
-                  <div class="grisdiv mt-4">Carrer4</div>
-                  <div class="grisdiv mt-4">123456789</div>
-                  <div class="grisdiv mt-4">4 años</div>
-                </div>
+                
               </div>
             </div>
 
@@ -133,9 +157,9 @@
 
         <div class="card mt-4 cartadatos">
           <div class="card-body">
-            <div class="container text-center">
+            <div class="container" >
               <div class="row">
-                <div class="col izq">
+                <div class="col izq mt-2">
                   <span class="negrita">Nombre</span>
                   <hr>
                   <span class="negrita">Posiciones</span>
@@ -143,7 +167,7 @@
                   <span class="negrita">Skills</span>
                   <hr>
                 </div>
-                <div class="col izq">
+                <div class="col izq mt-2">
                   <span class="tam">Izan Dueso López</span>
                   <hr>
                   <span class="tam">3 posiciones</span>
@@ -151,7 +175,13 @@
                   <span class="tam">JAVA, C, C#, .NET</span>
                   <hr>
                 </div>
-                <div class="col"></div>
+                <div class="col izqbotones">
+                  <button type="button" class="btn btn-outline-success btn-lg"><i class="bi bi-pencil-fill"></i></button>
+                  <br><br>
+                  <button type="button" class="btn btn-outline-danger btn-lg"><i class="bi bi-plus-circle-fill"></i></button>
+                  <br><br>
+                  <button type="button" class="btn btn-outline-warning btn-lg"><i class="bi bi-plus-circle-fill"></i></button>
+                </div>
               </div>
             </div>
           </div>
@@ -198,13 +228,13 @@
                     </tr>
                   </table>
                   <div style="text-align: left;">Mostrando del 1 al 5 en un total de 5 registros
-                    <br><button type="button" class="btn btn-primary mt-3">Añadir usuario</button>
+                    <br><button type="button" class="botonvisualizar mt-2">Añadir usuario</button>
                   </div>
 
                   <div class="subirindice" style="text-align: right;">
-                    <a href="#" class="btn btn-primary " aria-current="page">Anterior</a>
-                    <a href="#" class="btn btn-primary active">1</a>
-                    <a href="#" class="btn btn-primary">Siguiente</a>
+                    <button type="button" class="botonvisualizar mt-2">Anterior</button>
+                    <button type="button" class="botonvisualizar mt-2">1</button>
+                    <button type="button" class="botonvisualizar mt-2">Siguiente</button>
                   </div>
                 </div>
               </div>
