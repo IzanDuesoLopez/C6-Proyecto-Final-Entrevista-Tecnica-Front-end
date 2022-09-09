@@ -5,12 +5,15 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Crear Posicion</title>
+  <title>Sobre nosotros</title>
   <link rel="stylesheet" href="css/style.css" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap');
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
@@ -87,50 +90,38 @@
   </nav>
 
   <div class="container">
-    <div class="row">
+    <div class="about-section">
+      <h1>Sobre nosotros</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique arcu ac auctor convallis. Aenean sagittis scelerisque sem eget tincidunt. Duis lobortis, arcu dictum iaculis tristique, ante massa faucibus enim, rutrum interdum mi sem semper risus. Nunc euismod ipsum in neque convallis placerat. Duis nec tempus massa, in dignissim quam. Suspendisse potenti. Nunc at mauris venenatis urna posuere tempus. Suspendisse sem libero, fermentum sit amet interdum eget, sodales eu justo. Nam erat lorem, ullamcorper non lectus ut, aliquam varius mi. Donec fringilla erat at cursus dignissim. Fusce imperdiet hendrerit lectus eu faucibus.</p>
+    </div>
+    <hr class="text-white">
+    <h2 style="text-align:center" class="text-white m-5">Nuestro equipo</h2>
+    <div class="row justify-content-center">
+      <div class="column col-5">
+        <img src="img/izan.png" alt="Izan" style="width:50%" class="m-3 my-5">
+        <div class="card align-items-center">
+          
+          <div class="container">
+            <h2>Izan Dueso</h2>
+            <p class="title">Web Developer Full-Stack</p>
+            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+            <p>izandueso@gmail.com</p>
+            <p><button class="button">Contactar</button></p>
+          </div>
+        </div>
+      </div>
+    
+
       
-      <div class="col-12">
-
-        
-
-        <div class="card mt-4 mb-4">
-          <div class="card-body">
-            
-            <form id="login-form" class="form" action="" method="post">
-              <h3 class="text-center textInfo">Crear posiciones</h3>
-              <div class="row justify-content-center">
-                <div class="form-group col-8">
-                    <label for="title" class="textInfo">Titulo:</label><br>
-                    <input type="text" name="title" id="title" class="form-control">
-                </div>
-              </div>
-
-              <div class="row justify-content-center mt-3">
-                <div class="form-group col-8">
-                  <div class="form-group col-12">
-                    <label for="description" class="textInfo">Descripción:</label><br>
-                    <textarea class="form-control" name="description" id="description" rows="12"></textarea>
-                </div>
-                </div>
-              </div>
-
-
-              <div class="row justify-content-center mt-3">
-                <div class="form-group col-4">
-                  <br><button type="button" class="btn btn-danger">Cancelar</button>
-                </div>
-                <div class="form-group col-4">
-                  <div class="row">
-                  <div class="col-9"></div>
-                  <div class="col-3">
-                  <br><button type="button" class="btn btn-primary">Guardar</button>
-                </div>
-              </div>
-                </div>
-              </div>
-          </form>
-
-
+      <div class="column col-5">
+        <div class="card align-items-center">
+          <img src="img/joel.png" alt="Joel" style="width:50%" class="m-3 my-5">
+          <div class="container">
+            <h2>Joel Romero</h2>
+            <p class="title">Web Developer Full-Stack</p>
+            <p>Me gustan los perros. <i class="bi bi-hand-thumbs-up"></i></p>
+            <p>joelaguilar2911@gmail.com</p>
+            <p><button class="button">Contactar</button></p>
           </div>
         </div>
       </div>
