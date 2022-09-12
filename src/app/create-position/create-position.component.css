@@ -150,21 +150,6 @@ background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 0%, rgba(
   border-left: 1px solid rgb(211, 211, 211);
 }
 
-.nav-link:hover{
-  background-color: #fdfdfd33;
-  border: none;
-  color: black;
-  opacity: 1;
-  transition: 0.3s;
-  border-radius: 10px;
-}
-
-.navbar{
-  border-radius: 10px;
-  -webkit-box-shadow: 0 8px 6px -6px #999;
-  -moz-box-shadow: 0 8px 6px -6px #999;
-  box-shadow: 0 8px 6px -6px #999;
-}
 
 .redes{
   font-size: 25px;

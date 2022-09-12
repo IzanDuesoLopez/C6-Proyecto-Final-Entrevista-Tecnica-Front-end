@@ -1,2 +1,8 @@
-@import'./app/landing-page/landing-page.component.css';
-@import'./app/candidates-profile/candidates-profile.component.css';
+
+@import './app/login/login.component.css';
+@import './app/register/register.component.css';
+@import './app/create-position/create-position.component.css';
+@import './app/position-page/position-page.component.css';
+@import './app/search-page/search-page.component.css';
+@import './app/landing-page/landing-page.component.css';
+@import './app/candidates-profile/candidates-profile.component.css';
