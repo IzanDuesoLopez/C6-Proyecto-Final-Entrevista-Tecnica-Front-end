@@ -1,0 +1,123 @@
+.logosapo{
+  max-height: 60px;
+  max-width: 60px;
+  background-color: white;
+  border-radius: 500px;
+  box-shadow: 0px 2px 6px rgb(56, 56, 56);
+}
+
+body{
+  background: rgb(9,9,121);
+background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+.borde{
+  border-left: 1px solid rgb(211, 211, 211);
+}
+
+.nav-link:hover{
+  background-color: #fdfdfd33;
+  border: none;
+  color: black;
+  opacity: 1;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+.redes{
+  font-size: 25px;
+  color: white;
+}
+
+.user{
+  font-size: 25px;
+  color: white;
+  margin-left: 25px;
+}
+
+.redes:hover{
+  color: rgb(0, 43, 122);
+}
+
+.boton{
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 12px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+}
+
+.boton:hover{
+  background-color: gray;
+
+}
+
+.navbar{
+  background-color: rgb(21, 122, 255);
+}
+
+.divuno{
+  background-color: rgb(21, 122, 255);
+}
+
+.botonlanding{
+  background-color: rgb(21, 122, 255);
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  text-align: left;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+  margin-bottom: 10rem !important;
+}
+
+.botonlanding:hover{
+  background-color: rgb(21, 122, 255);
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  text-align: left;
+  text-decoration: none;
+  font-size: 18px;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+  margin-bottom: 10rem !important;
+}
+
+.titulo{
+  text-align: left;
+  font-weight: 600;
+  margin-top: 10rem !important;
+  color: white;
+}
+
+.subtitulo{
+  text-align: left;
+  font-weight: 300;
+  margin-bottom: 2rem !important;
+  color: white;
+}
+
+.fondocol{
+  background-image: url(../../assets/img/fondo.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-top: 5rem !important;
+}
+
+.caracteristicas{
+  font-size: 3rem;
+  color: red;
+}
+
+.card{
+  background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}

@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { PositionPageComponent } from './position-page/position-page.component';
 import { CreatePositionComponent } from './create-position/create-position.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CreatePositionComponent } from './create-position/create-position.compo
     LoginComponent,
     SearchPageComponent,
     PositionPageComponent,
-    CreatePositionComponent
+    CreatePositionComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
