@@ -282,3 +282,17 @@ background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 0%, rgba(
 .bi-browser-edge{
   color: rgb(61, 211, 161);
 }
+
+.fondotabla{
+  background-color: rgb(176, 208, 255);
+  border: 1px solid black;
+}
+
+th{
+  background-color: rgb(128, 178, 253);
+  border: 1px solid blue;
+}
+
+td{
+  border: 1px solid blue;
+}
