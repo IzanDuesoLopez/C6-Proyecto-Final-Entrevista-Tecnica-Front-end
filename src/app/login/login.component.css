@@ -6,7 +6,8 @@ body {
   height: 100vh;
 }
 #login .container #login-row #login-column #login-box {
-  margin-top: 120px;
+  margin-top: 200px;
+  margin-bottom: 200px;
   max-width: 600px;
   padding-top: 25px;
   height: 380px;
@@ -45,9 +46,6 @@ body {
   border-radius: 5px;
   margin-bottom: 10rem !important;
 }
-
-/* footer {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-} */
+.text-right{
+  text-align: end;
+}
