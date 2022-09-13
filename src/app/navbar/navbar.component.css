@@ -8,11 +8,14 @@
 
 .borde{
   border-left: 1px solid rgb(211, 211, 211);
+  margin-left: 10px;
+  padding-left: 10px;
 }
 
 @media (max-width: 600px) {
-  .borde{
+  .nav-item{
     border-left: none;
+    padding-left: none;
     margin-left: 20px;
   }
 }
@@ -24,11 +27,6 @@
   opacity: 1;
   transition: 0.3s;
   border-radius: 10px;
-}
-
-.user{
-  font-size: 25px;
-  color: white;
 }
 
 .boton{
@@ -51,4 +49,10 @@
 
 .navbar{
   background-color: rgb(21, 122, 255);
+}
+
+.loginButton{
+  font-size: 110%;
+  border: white 1px solid;
+  border-radius: 10px 10px 10px 10px;
 }

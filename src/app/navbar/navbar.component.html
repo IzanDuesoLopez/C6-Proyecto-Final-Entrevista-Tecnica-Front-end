@@ -1,53 +1,34 @@
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/home"><img src="../../assets/img/Logo.png" alt="" class="logosapo"> T-Jobs</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item borde">
-            <a class="nav-link active" aria-current="page" routerLink="/home"><i class="bi bi-house-door-fill"></i> Inicio</a>
-          </li>
-          <li class="nav-item borde">
-            <a class="nav-link active" routerLink="/about-us"><i class="bi bi-envelope-fill"></i> Sobre Nosotros</a>
-          </li>
-          <li class="nav-item dropdown borde">
-            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <i class="bi bi-gear-fill"></i> Servicios
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Posiciones</a></li>
-              <li><a class="dropdown-item" href="#">Skills</a></li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li><a class="dropdown-item" href="#">Mi CV</a></li>
-            </ul>
-          </li>
-          <li class="nav-item borde">
-            <a class="nav-link active" href="#"><i class="bi bi-file-earmark-person-fill"></i> Mi CV</a>
-          </li>
-          <li class="nav-item borde">
-            <a class="nav-link active" href="#"><i class="bi bi-telephone-fill"></i> Contacto</a>
-          </li>
-        </ul>
-        <form class="mx-3" role="search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Busqueda" aria-label="Search" />
-            <button class="boton" type="button">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
-        </form>
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/login"><i class="bi bi-person-fill user"></i> Login</a>
-          </li>
-        </ul>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home"><img src="../../assets/img/Logo.png" alt="" class="logosapo"> T-Jobs</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item borde">
+          <a class="nav-link active" aria-current="page" routerLink="/home"><i class="bi bi-house-door-fill"></i>
+            Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/about-us"><i class="bi bi-envelope-fill"></i> Sobre Nosotros</a>
+        </li>
+      </ul>
+      <form class="mx-3" role="search">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Busqueda" aria-label="Search" />
+          <button class="boton" type="button">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active loginButton" aria-current="page" routerLink="/login"> <span class=""> Iniciar sesión </span><i
+              class="bi bi-person-fill user"></i></a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

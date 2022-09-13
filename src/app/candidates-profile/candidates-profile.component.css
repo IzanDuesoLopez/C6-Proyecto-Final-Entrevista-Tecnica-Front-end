@@ -1,32 +1,19 @@
-.logosapo{
-  max-height: 60px;
-  max-width: 60px;
-  background-color: white;
-  border-radius: 500px;
-  box-shadow: 0px 2px 6px rgb(56, 56, 56);
-}
-
-.izqbotones{
-  text-align: left;
-  margin-left: 2rem !important;
-}
-
-.botonusuario{
+.botonusuario {
   background-color: #00a6ff;
   color: white;
   border: white;
   height: 130px;
   width: 130px;
-  border:  3px solid transparent;
+  border: 3px solid transparent;
   box-shadow: 0px 2px 6px rgb(0, 0, 0);
   transition: all 0.2s ease;
   border-radius: 100%;
 }
 
-.botonusuario:hover{
+.botonusuario:hover {
   background-color: white;
-  color:  #00a6ff;
-  border:  3px solid #00a6ff;
+  color: #00a6ff;
+  border: 3px solid #00a6ff;
   height: 130px;
   width: 130px;
   box-shadow: 0px 2px 6px rgb(0, 0, 0);
@@ -34,39 +21,39 @@
   border-radius: 100%;
 }
 
-.bi-pc-display-horizontal{
+.bi-pc-display-horizontal {
   font-size: 2rem;
   color: rgb(235, 88, 88);
 }
 
-.bi-motherboard-fill{
+.bi-motherboard-fill {
   font-size: 2rem;
   color: rgb(112, 207, 112);
 }
 
-.bi-cpu-fill{
+.bi-cpu-fill {
   font-size: 2rem;
   color: rgb(167, 167, 255);
 }
 
-.bi-pc{
+.bi-pc {
   font-size: 2rem;
   color: rgb(235, 235, 127)
 }
 
-.skill{
+.skill {
   margin-bottom: 0rem !important;
 }
 
-.subir{
+.subir {
   margin-top: -2rem !important;
 }
 
-.subirindice{
+.subirindice {
   margin-top: -5rem !important;
 }
 
-.botonvisualizar{
+.botonvisualizar {
   background-color: #008CBA;
   padding: 5px 10px;
   border: none;
@@ -74,16 +61,17 @@
   transition-duration: 0.4s;
   border: 2px solid transparent;
 }
-.botonvisualizar:hover{
+
+.botonvisualizar:hover {
   border: none;
   padding: 5px 10px;
   transition-duration: 0.4s;
   background-color: white;
   color: black;
-  border: 2px solid #008CBA; /* Green */
+  border: 2px solid #008CBA;
 }
 
-.botoneditar{
+.botoneditar {
   background-color: rgb(0, 212, 89);
   padding: 5px 10px;
   border: none;
@@ -91,16 +79,17 @@
   transition-duration: 0.4s;
   border: 2px solid transparent;
 }
-.botoneditar:hover{
+
+.botoneditar:hover {
   border: none;
   padding: 5px 10px;
   transition-duration: 0.4s;
   background-color: white;
   color: black;
-  border: 2px solid rgb(0, 212, 89);; /* Green */
+  border: 2px solid rgb(0, 212, 89);
 }
 
-.botoneliminar{
+.botoneliminar {
   background-color: red;
   padding: 5px 10px;
   border: none;
@@ -108,191 +97,44 @@
   transition-duration: 0.4s;
   border: 2px solid transparent;
 }
-.botoneliminar:hover{
+
+.botoneliminar:hover {
   border: none;
   padding: 5px 10px;
   transition-duration: 0.4s;
   background-color: white;
   color: black;
-  border: 2px solid red /* Green */
+  border: 2px solid red
 }
 
-.negritadiv{
-  font-weight: bold;
-  font-size: 20px;
-  text-align: left;
-}
-
-.grisdiv{
-  color: gray;
-  font-size: 20px;
-  text-align: right;
-}
-
-.cartadatos{
-  max-height: 15rem;
-}
-
-.crud{
-  max-height: 35rem;
-}
-
-.datosinteres{
-  max-height: 35rem;
-}
-
-.negrita{
-  font-weight: bold;
-  font-size: 20px;
-  margin-right: 3rem !important;
-  text-align: left;
-}
-
-.tam{
-  font-size: 20px;
-  color: grey;
-  text-align: left;
-}
-
-body{
-  background: rgb(9,9,121);
-background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-}
-
-.borde{
-  border-left: 1px solid rgb(211, 211, 211);
-}
-
-.nav-link:hover{
-  background-color: #fdfdfd33;
-  border: none;
-  color: black;
-  opacity: 1;
-  transition: 0.3s;
-  border-radius: 10px;
-}
-
-.redes{
-  font-size: 25px;
-  color: white;
-}
-
-.user{
-  font-size: 25px;
-  color: white;
-  margin-left: 25px;
-}
-
-.redes:hover{
-  color: rgb(0, 43, 122);
-}
-
-.boton{
-  background-color: white;
-  border: none;
-  color: black;
-  padding: 12px 28px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  transition-duration: 0.4s;
-  border-radius: 5px;
-}
-
-.boton:hover{
-  background-color: gray;
-
-}
-
-.navbar{
-  background-color: rgb(21, 122, 255);
-}
-
-.divuno{
-  background-color: rgb(21, 122, 255);
-}
-
-.botonlanding{
-  background-color: rgb(21, 122, 255);
-  border: none;
-  color: white;
-  padding: 12px 28px;
-  text-align: left;
-  text-decoration: none;
-  font-size: 16px;
-  transition-duration: 0.4s;
-  border-radius: 5px;
-  margin-bottom: 10rem !important;
-}
-
-.botonlanding:hover{
-  background-color: rgb(21, 122, 255);
-  border: none;
-  color: white;
-  padding: 12px 28px;
-  text-align: left;
-  text-decoration: none;
-  font-size: 18px;
-  transition-duration: 0.4s;
-  border-radius: 5px;
-  margin-bottom: 10rem !important;
-}
-
-.titulo{
-  text-align: left;
-  font-weight: 600;
-  margin-top: 10rem !important;
-  color: white;
-}
-
-.subtitulo{
-  text-align: left;
-  font-weight: 300;
-  margin-bottom: 2rem !important;
-  color: white;
-}
-
-.fondocol{
-  /* background-image: url(../imagenes/fondo.png); */
-  background-size: 100%;
-  background-repeat: no-repeat;
-  margin-top: 5rem !important;
-}
-
-.caracteristicas{
-  font-size: 3rem;
-  color: red;
-}
-
-
-.bi-person-circle{
+.bi-person-circle {
   font-size: 4rem;
 }
 
-.bi-linkedin{
+.bi-linkedin {
   color: blue;
   font-size: 1rem;
 }
 
-.izq{
+.izq {
   text-align: left;
 }
 
-.bi-browser-edge{
+.bi-browser-edge {
   color: rgb(61, 211, 161);
 }
-.fondotabla{   background-color: rgb(176, 208, 255);   border: 1px solid black; }  th{   background-color: rgb(128, 178, 253);   border: 1px solid blue; }  td{   border: 1px solid blue; }
-.fondotabla{
+
+
+.fondotabla {
   background-color: rgb(176, 208, 255);
   border: 1px solid black;
 }
 
-th{
+th {
   background-color: rgb(128, 178, 253);
   border: 1px solid blue;
 }
 
-td{
+td {
   border: 1px solid blue;
 }
