@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +7,4 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'C6-Proyecto-Final-Entrevista-Tecnica-Front-end';
-
-  constructor(private router: Router) {}
-
-  ngOnInit() {
-    this.router.navigate(['/home'])
-  }
 }
