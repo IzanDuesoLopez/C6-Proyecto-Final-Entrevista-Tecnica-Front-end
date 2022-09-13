@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'C6-Proyecto-Final-Entrevista-Tecnica-Front-end';
 
-  constructor(private router: Router) {}
+  // constructor(private router: Router) {}
 
-  ngOnInit() {
-    this.router.navigate(['/home'])
-  }
+  // ngOnInit() {
+  //   this.router.navigate(['/home'])
+  // }
 }
