@@ -12,14 +12,6 @@
   padding-left: 10px;
 }
 
-@media (max-width: 600px) {
-  .nav-item{
-    border-left: none;
-    padding-left: none;
-    margin-left: 20px;
-  }
-}
-
 .nav-link:hover{
   background-color: #fdfdfd33;
   border: none;
@@ -55,4 +47,26 @@
   font-size: 110%;
   border: white 1px solid;
   border-radius: 10px 10px 10px 10px;
+}
+
+@media (max-width: 600px) {
+  .nav-item{
+    border-left: 0px;
+    padding-left: 0px;
+    margin-left: 20px;
+  }
+
+  .borde{
+    padding-left: 0px;
+    margin-right: -20px;
+  }
+
+  .loginButton{
+    font-size: 110%;
+    border: white 1px solid;
+    border-radius: 10px 10px 10px 10px;
+    width: 150px;
+    text-align: center;
+    margin-top: 10px;
+  }
 }
