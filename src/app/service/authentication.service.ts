@@ -3,17 +3,17 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
 
 export class User {
-  constructor(public status: string) {}
+  constructor(public status: string) { }
 }
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthenticationService {
-  constructor(private httpClient: HttpClient) {}
-// Provide username and password for authentication, and once authentication is successful,
-//store JWT token in session
-  authenticate(username:any, password:any) {
+  constructor(private httpClient: HttpClient) { }
+  // Provide username and password for authentication, and once authentication is successful,
+  //store JWT token in session
+  authenticate(username: any, password: any) {
     return this.httpClient
       .post<any>("https://team3-c6-project.herokuapp.com/login", { username, password })
       .pipe(

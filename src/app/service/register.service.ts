@@ -9,14 +9,14 @@ export class RegisterService {
 
   constructor(private httpClient: HttpClient) { }
 
-  register(name:any, surname:any, username:any, password:any) {
-    let enabled:boolean = true
-    let roles:any = [
+  register(name: any, surname: any, username: any, password: any) {
+    let enabled: boolean = true
+    let roles: any = [
       {
-          "id": 11,
-          "name": "USER"
+        "id": 11,
+        "name": "USER"
       }
-  ]
+    ]
     return this.httpClient
       .post<any>("https://team3-c6-project.herokuapp.com/register", { name, surname, username, password, enabled, roles });
   }

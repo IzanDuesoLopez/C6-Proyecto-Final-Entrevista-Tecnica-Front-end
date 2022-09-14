@@ -7,14 +7,16 @@
   border: 1px solid white;
   border-radius: 2%;
 }
+
 #login .container #login-row #login-column #login-box #login-form {
   padding: 20px;
 }
 
-.textInfo{
+.textInfo {
   color: white;
 }
-.btn-custom{
+
+.btn-custom {
   background-color: rgb(21, 122, 255);
   border: none;
   color: white;
@@ -27,7 +29,7 @@
   margin-bottom: 10rem !important;
 }
 
-.btn-custom:hover{
+.btn-custom:hover {
   background-color: rgb(12, 68, 141);
   border: none;
   color: white;
@@ -39,6 +41,7 @@
   border-radius: 5px;
   margin-bottom: 10rem !important;
 }
-.text-right{
+
+.text-right {
   text-align: end;
 }

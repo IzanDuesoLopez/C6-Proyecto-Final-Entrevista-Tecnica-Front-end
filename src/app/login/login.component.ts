@@ -14,28 +14,50 @@ export class LoginComponent implements OnInit {
   password = ''
   invalidLogin = false
 
+  public errorUsername = ''
+  public errorPassword = ''
+
   @Input() error: string | null = "";
 
-  constructor(private router: Router,
-    private loginservice: AuthenticationService) { }
+  constructor(
+    private router: Router,
+    private loginservice: AuthenticationService
+  ) { }
 
   ngOnInit(): void {
   }
 
   checkLogin() {
-    console.log(this.username, this.password);
-    (this.loginservice.authenticate(this.username, this.password).subscribe(
-        data => {
-          this.router.navigate(['/home'])
-          this.invalidLogin = false
-        },
-        error => {
-          this.invalidLogin = true
-          this.error = error.message;
 
-        }
-    )
+    this.errorUsername = ''
+    this.errorPassword = ''
+    this.error = ''
 
-    );
+    this.username = this.username.trim();
+    this.password = this.password.trim();
+
+    if(this.username == ""){
+      this.errorUsername = "El nombre de usuario es obligatorio.";
+    }
+    if(this.password == ""){
+      this.errorPassword = "La contraseña es obligatoria.";
+    }
+
+    if(this.errorUsername == "" && this.errorPassword == "" ){
+
+      (this.loginservice.authenticate(this.username, this.password).subscribe(
+          data => {
+            this.router.navigate(['/home'])
+            this.invalidLogin = false
+          },
+          error => {
+            this.invalidLogin = true
+            console.log(error.message)
+            this.error = "Datos de inicio de sesión incorrectos.";
+          }
+        )
+      );
+
+    }
   }
 }
