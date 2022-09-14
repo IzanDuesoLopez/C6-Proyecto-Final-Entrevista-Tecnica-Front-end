@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   username = ''
   password = ''
   invalidLogin = false
+  cargando = false;
 
   @Input() error: string | null = "";
 
@@ -23,16 +24,18 @@ export class LoginComponent implements OnInit {
   }
 
   checkLogin() {
+    this.cargando = true;
     console.log(this.username, this.password);
     (this.loginservice.authenticate(this.username, this.password).subscribe(
         data => {
           this.router.navigate(['/home'])
           this.invalidLogin = false
+          this.cargando = false;
         },
         error => {
           this.invalidLogin = true
           this.error = error.message;
-
+          this.cargando = false;
         }
     )
 

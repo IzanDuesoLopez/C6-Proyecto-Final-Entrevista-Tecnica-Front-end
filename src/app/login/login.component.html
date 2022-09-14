@@ -28,6 +28,7 @@
               <div class="col-6">
                 <div id="register-link" class="text-right">
                   <a routerLink="/register" class="textInfo">Registrarse</a>
+                  <div *ngIf="cargando" class="centrar"><mat-spinner color="accent"></mat-spinner></div>
                 </div>
               </div>
             </div>
