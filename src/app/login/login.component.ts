@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   username = ''
   password = ''
   invalidLogin = false
+  cargando = false;
 
   public errorUsername = ''
   public errorPassword = ''
@@ -28,11 +29,28 @@ export class LoginComponent implements OnInit {
   }
 
   checkLogin() {
+<<<<<<< HEAD
 
     this.errorUsername = ''
     this.errorPassword = ''
     this.error = ''
-
+=======
+    this.cargando = true;
+    console.log(this.username, this.password);
+    (this.loginservice.authenticate(this.username, this.password).subscribe(
+        data => {
+          this.router.navigate(['/home'])
+          this.invalidLogin = false
+          this.cargando = false;
+        },
+        error => {
+          this.invalidLogin = true
+          this.error = error.message;
+          this.cargando = false;
+        }
+    )
+>>>>>>> origin/14-09-22-SPINNER
+    this.cargando = true;
     this.username = this.username.trim();
     this.password = this.password.trim();
 
@@ -49,10 +67,12 @@ export class LoginComponent implements OnInit {
           data => {
             this.router.navigate(['/home'])
             this.invalidLogin = false
+            this.cargando = false;
           },
           error => {
             this.invalidLogin = true
             console.log(error.message)
+            this.cargando = false;
             this.error = "Datos de inicio de sesión incorrectos.";
           }
         )

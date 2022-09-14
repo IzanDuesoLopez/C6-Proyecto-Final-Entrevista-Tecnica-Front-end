@@ -17,6 +17,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BasicAuthHtppInterceptorService } from './service/basic-auth-interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { BasicAuthHtppInterceptorService } from './service/basic-auth-intercepto
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {
