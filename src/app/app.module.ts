@@ -14,8 +14,9 @@ import { SearchPageComponent } from './search-page/search-page.component';
 import { PositionPageComponent } from './position-page/position-page.component';
 import { CreatePositionComponent } from './create-position/create-position.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BasicAuthHtppInterceptorService } from './service/basic-auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,11 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
