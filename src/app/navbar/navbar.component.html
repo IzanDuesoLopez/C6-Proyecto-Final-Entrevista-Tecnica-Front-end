@@ -25,8 +25,12 @@
       </form>
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active loginButton" aria-current="page" routerLink="/login"> <span class=""> Iniciar sesión </span><i
+          <a class="nav-link active loginButton" aria-current="page" routerLink="/login" *ngIf="!loginService.isUserLoggedIn()"> <span class=""> Iniciar sesión </span><i
               class="bi bi-person-fill user"></i></a>
+        </li>
+        <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
+          <a class="nav-link active loginButton" aria-current="page" routerLink="/profile"> <span class=""> Perfil </span><i
+            class="bi bi-person-fill user"></i></a>
         </li>
         <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
           <a class="nav-link active loginButton" aria-current="page" routerLink="/logout"> <span class=""> Desconectar </span><i
