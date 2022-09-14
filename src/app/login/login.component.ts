@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   username = ''
   password = ''
   invalidLogin = false
+  cargando = false;
 
   public errorUsername = ''
   public errorPassword = ''
@@ -44,16 +45,18 @@ export class LoginComponent implements OnInit {
     }
 
     if(this.errorUsername == "" && this.errorPassword == "" ){
-
+      this.cargando = true;
       (this.loginservice.authenticate(this.username, this.password).subscribe(
           data => {
             this.router.navigate(['/home'])
             this.invalidLogin = false
+            this.cargando = false;
           },
           error => {
             this.invalidLogin = true
             console.log(error.message)
             this.error = "Datos de inicio de sesión incorrectos.";
+            this.cargando = false;
           }
         )
       );
