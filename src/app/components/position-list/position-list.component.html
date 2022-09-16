@@ -1,1 +1,50 @@
-<p>position-list works!</p>
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+
+      <div class="input-group mb-3 mt-3">
+        <input type="text" class="form-control" placeholder="Buscar por titulo" [(ngModel)]="title"/>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" (click)="searchTitle()">Search</button>
+        </div>
+      </div>
+
+      <h3>Positions list</h3>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let ch of positions; let i = index" [class.active]="i == currentIndex" (click)="setActivePosition(ch, i)">
+          {{ch.title}}
+        </li>
+      </ul>
+
+    </div>
+    <div class="col">
+
+      <div *ngIf="currentPosition.id">
+        <h3 class="mt-3">Position</h3>
+        <div>
+          <label class="bold">iD:</label>{{currentPosition.id}}
+        </div>
+        <div>
+          <label class="bold">Title:</label>{{currentPosition.title}}
+        </div>
+        <div>
+          <label class="bold">description:</label>{{currentPosition.description}}
+        </div>
+        <div>
+          <label class="bold">id_HR_Users:</label>{{currentPosition.id_HR_Users}}
+        </div>
+
+
+        <button class="btn btn-warning mt-1" routerLink="/characters_list/{{currentPosition.title}}">EDITAR</button>
+        <button class="btn btn-warning mt-1">BORRAR</button>
+      </div>
+
+      <div *ngIf="!currentPosition">
+        <br />
+        <p>Clica en una posición!</p>
+
+      </div>
+
+    </div>
+  </div>
+</div>

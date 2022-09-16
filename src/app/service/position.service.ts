@@ -16,7 +16,7 @@ export class PositionService {
     return this.http.get<Position[]>(baseUrl);
   }
 
-  getByTitle(title: any): Observable<Position>{
-    return this.http.get(baseUrl + "/" + title);
+  getByTitle(title: any): Observable<Position[]>{
+    return this.http.get<Position[]>(baseUrl + "/" + title);
   }
 }

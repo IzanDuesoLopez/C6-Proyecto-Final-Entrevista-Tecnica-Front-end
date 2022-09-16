@@ -34,7 +34,30 @@ export class PositionListComponent implements OnInit {
   }
 
   refreshList(): void {
+    this.retrievePositions();
+    this.currentPosition = {};
+    this.currentIndex = -1;
+  }
 
+  setActivePosition(position: Position, index: number): void {
+    this.currentPosition = position;
+    this.currentIndex = index;
+  }
+
+  searchTitle(): void {
+    this.currentPosition = {};
+    this.currentIndex = -1;
+    alert(this.title)
+    this.positionService.getByTitle(this.title)
+      .subscribe(
+        data => {
+          this.positions = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 
 }
