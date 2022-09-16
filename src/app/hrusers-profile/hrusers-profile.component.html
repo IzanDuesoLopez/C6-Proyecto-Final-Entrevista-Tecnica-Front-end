@@ -30,7 +30,7 @@
                   <button type="button" class="botonvisualizar mt-2" (click)="showAddUsers()">Añadir usuario</button>
                 </div>
                 <div class="text-end subir mb-2">
-                  <input type="text" placeholder="Buscar usuario" aria-label="Search">
+                  <input type="text" placeholder="Buscar usuario" aria-label="Search" [(ngModel)]="searchUsers">
                 </div>
 
                 <table class="table fondotabla">
@@ -42,21 +42,23 @@
                     <th scope="col">Rol</th>
                     <th scope="col">CRUD</th>
                   </tr>
-                  <tr *ngFor="let u of users">
-                    <th scope="row">{{ u.id }}</th>
-                    <td>{{ u.name }}</td>
-                    <td>{{ u.surname }}</td>
-                    <td>{{ u.username }}</td>
-                    <td>{{ u.roles[0].name }}</td>
-                    <td>
-                      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                        <button type="button" class="botonvisualizar"><i class="bi bi-eye-fill"></i></button>
-                        <button type="button" class="botoneditar" (click)="showsUserToEdit( u.username )"><i class="bi bi-pencil-fill"></i></button>
-                        <button type="button" class="botoneliminar" (click)="deleteUser( u.id )"><i
-                            class="bi bi-person-x-fill"></i></button>
-                      </div>
-                    </td>
-                  </tr>
+                  <ng-container *ngFor="let u of users">
+                    <tr *ngIf="u.id == searchUsers || (u.name | lowercase).includes((searchUsers | lowercase)) || (u.surname | lowercase).includes((searchUsers | lowercase)) || (u.username | lowercase).includes((searchUsers | lowercase)) || (u.roles[0].name | lowercase).includes((searchUsers | lowercase))">
+                      <th scope="row">{{ u.id }}</th>
+                      <td>{{ u.name }}</td>
+                      <td>{{ u.surname }}</td>
+                      <td>{{ u.username }}</td>
+                      <td>{{ u.roles[0].name }}</td>
+                      <td>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                          <button type="button" class="botonvisualizar"><i class="bi bi-eye-fill"></i></button>
+                          <button type="button" class="botoneditar" (click)="showsUserToEdit( u.username )"><i class="bi bi-pencil-fill"></i></button>
+                          <button type="button" class="botoneliminar" (click)="deleteUser( u.id )"><i
+                              class="bi bi-person-x-fill"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </ng-container>
                 </table>
               </div>
             </div>
@@ -121,7 +123,7 @@
                   <button type="button" class="botonvisualizar mt-2" (click)="showAddSkills()">Añadir skill</button>
                 </div>
                 <div class="text-end subir mb-2">
-                  <input type="text" placeholder="Buscar skill" aria-label="Search">
+                  <input type="text" placeholder="Buscar skill" aria-label="Search" [(ngModel)]="searchSkills">
                 </div>
 
                 <table class="table fondotabla">
@@ -130,17 +132,19 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">CRUD</th>
                   </tr>
-                  <tr *ngFor="let s of skills">
-                    <th scope="row">{{ s.id }}</th>
-                    <td>{{ s.name }}</td>
-                    <td>
-                      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                        <button type="button" class="botoneditar" (click)="showsSkillToEdit( s.id )"><i class="bi bi-pencil-fill"></i></button>
-                        <button type="button" class="botoneliminar" (click)="deleteSkill( s.id )"><i
-                            class="bi bi-person-x-fill"></i></button>
-                      </div>
-                    </td>
-                  </tr>
+                  <ng-container *ngFor="let s of skills">
+                    <tr *ngIf="s.id == searchSkills || (s.name | lowercase).includes((searchSkills | lowercase))">
+                      <th scope="row">{{ s.id }}</th>
+                      <td>{{ s.name }}</td>
+                      <td>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                          <button type="button" class="botoneditar" (click)="showsSkillToEdit( s.id )"><i class="bi bi-pencil-fill"></i></button>
+                          <button type="button" class="botoneliminar" (click)="deleteSkill( s.id )"><i
+                              class="bi bi-person-x-fill"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </ng-container>
                 </table>
               </div>
             </div>

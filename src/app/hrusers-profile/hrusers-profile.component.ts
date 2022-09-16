@@ -25,6 +25,10 @@ export class HrusersProfileComponent implements OnInit {
   showUser = false;
   showSkill = false;
 
+  // Search
+  searchUsers = ''
+  searchSkills = ''
+
   // Variables for user windows functionalities.
   // Add user.
   userToAdd: User = {
