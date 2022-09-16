@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
 import { BasicAuthHtppInterceptorService } from './service/basic-auth-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { PositionListComponent } from './components/position-list/position-list.component';
+import { PositionDetailsComponent } from './components/position-details/position-details.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     SearchPageComponent,
     PositionPageComponent,
     CreatePositionComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    PositionListComponent,
+    PositionDetailsComponent
   ],
   imports: [
     BrowserModule,

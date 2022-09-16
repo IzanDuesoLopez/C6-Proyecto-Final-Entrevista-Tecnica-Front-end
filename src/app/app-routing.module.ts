@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CandidatesProfileComponent } from './candidates-profile/candidates-profile.component';
+import { PositionDetailsComponent } from './components/position-details/position-details.component';
+import { PositionListComponent } from './components/position-list/position-list.component';
 import { CreatePositionComponent } from './create-position/create-position.component';
 import { HrusersProfileComponent } from './hrusers-profile/hrusers-profile.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -51,7 +53,9 @@ const routes: Routes = [
   {
     path:'home',
     component:LandingPageComponent
-  }
+  },
+  {path:'positions', component:PositionListComponent},
+  {path:'positions/:title', component:PositionDetailsComponent}
 ];
 
 @NgModule({
