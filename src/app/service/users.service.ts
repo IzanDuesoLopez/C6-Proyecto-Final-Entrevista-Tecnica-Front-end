@@ -21,6 +21,22 @@ export class UsersService {
     return this.http.get<any>(baseUrl + '/username/' + username);
   }
 
+  add(name: any, surname: any, username: any, password: any) {
+    let enabled: boolean = true
+    let roles: any = [
+      {
+        "id": 11,
+        "name": "USER"
+      }
+    ]
+    return this.http
+      .post<any>("https://team3-c6-project.herokuapp.com/register", { name, surname, username, password, enabled, roles });
+  }
+
+  update(id:any, data:any): Observable<any> {
+    return this.http.put(baseUrl + '/' + id, data);
+  }
+
   delete(id:any): Observable<any> {
     return this.http.delete(baseUrl + '/' + id);
   }
