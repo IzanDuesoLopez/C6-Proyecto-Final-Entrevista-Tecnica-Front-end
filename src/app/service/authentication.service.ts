@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
 
 export class User {
-  constructor(public status: string) { }
+  constructor() { }
+  //public status: string
 }
 
 @Injectable({
