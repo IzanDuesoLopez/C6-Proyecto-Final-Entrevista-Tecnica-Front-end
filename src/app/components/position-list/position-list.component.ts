@@ -11,7 +11,7 @@ import { PositionService } from 'src/app/service/position.service';
 })
 export class PositionListComponent implements OnInit {
 
-  // Deshabilita botones
+  // Deshabilita botones.
   clicked:any;
 
   positions?: Position[];
