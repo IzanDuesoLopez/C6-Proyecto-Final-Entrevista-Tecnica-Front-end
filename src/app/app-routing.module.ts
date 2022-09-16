@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CandidatesProfileComponent } from './candidates-profile/candidates-profile.component';
 import { CreatePositionComponent } from './create-position/create-position.component';
+import { HrusersProfileComponent } from './hrusers-profile/hrusers-profile.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path:'profile',
     component:CandidatesProfileComponent
+  },
+  {
+    path:'profile-admin',
+    component:HrusersProfileComponent
   },
   {
     path:'home',

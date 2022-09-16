@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private route:ActivatedRoute,
+    private router: Router,
     public loginService:AuthenticationService,
     private usersService:UsersService
   ) { }
@@ -30,7 +31,9 @@ export class NavbarComponent implements OnInit {
     .subscribe(
       result => {
         this.user = result;
-        console.log(this.user.roles)
+        if(this.user.roles[0].name=="ADMIN"){
+          this.router.navigate(['/profile-admin'])
+        }
       },
       error => {
         console.log(error)

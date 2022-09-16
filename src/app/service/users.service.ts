@@ -18,16 +18,10 @@ export class UsersService {
   }
 
   findByUsername(username:any): Observable<User> {
-    const headerDict = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Origin': 'http://localhost:4200'
-    }
-
-    const requestOptions = {
-      headers: new HttpHeaders(headerDict),
-    };
     return this.http.get<any>(baseUrl + '/username/' + username);
+  }
+
+  delete(id:any): Observable<any> {
+    return this.http.delete(baseUrl + '/' + id);
   }
 }

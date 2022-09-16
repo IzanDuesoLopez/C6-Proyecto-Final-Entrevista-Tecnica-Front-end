@@ -16,8 +16,10 @@ export class RegisterComponent implements OnInit {
 
   @Input() error: string | null = "";
 
-  constructor(private router: Router,
-    private registerservice: RegisterService) { }
+  constructor(
+    private router: Router,
+    private registerservice: RegisterService
+  ) { }
 
   ngOnInit(): void {
   }
