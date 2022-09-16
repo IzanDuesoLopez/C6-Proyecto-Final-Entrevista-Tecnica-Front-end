@@ -29,9 +29,9 @@
               class="bi bi-person-fill user"></i></a>
         </li>
         <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
-          <a class="nav-link active loginButton" aria-current="page" routerLink="/profile"> <span class=""> Perfil </span><i
+          <a class="nav-link active loginButton" aria-current="page" (click)="redirectProfileType()"> <span class=""> Perfil </span><i
             class="bi bi-person-fill user"></i></a>
-        </li>
+        </li>&nbsp;
         <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
           <a class="nav-link active loginButton" aria-current="page" routerLink="/logout"> <span class=""> Desconectar </span><i
               class="bi bi-person-fill user"></i></a>

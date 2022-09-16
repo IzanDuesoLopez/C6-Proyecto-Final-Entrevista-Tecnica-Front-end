@@ -13,7 +13,7 @@ export class BasicAuthHtppInterceptorService implements HttpInterceptor {
 
     if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
       req = req.clone({
-        setHeaders: { Authorization: "${sessionStorage.getItem('token')}" }
+        setHeaders: { Authorization: "" + sessionStorage.getItem('token') }
       })
     }
 

@@ -28,11 +28,27 @@ export class AuthenticationService {
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem("username");
-    console.log(!(user === null));
+    // console.log(!(user === null));
     return !(user === null);
   }
 
   logOut() {
     sessionStorage.removeItem("username");
   }
+
+  // isAdmin() {
+  //   let username = sessionStorage.getItem("username");
+  //   console.log("USERNAME: " + username)
+  //   // return this.httpClient.get("https://team3-c6-project.herokuapp.com/api/candidates/username/" + username)
+  //   //       .subscribe(
+  //   //         result => {
+  //   //           console.log("RESULT: " + result)
+  //   //         },
+  //   //         error => {
+  //   //           console.log("ERROR: " + error.message())
+  //   //         }
+
+  //   //       )
+  //   return true
+  // }
 }
