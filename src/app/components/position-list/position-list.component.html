@@ -1,6 +1,6 @@
 <div class="container text-center">
   <div class="row">
-    <div class="col">
+    <div class="col-12">
 
       <div class="input-group mb-3 mt-3">
         <input type="text" class="form-control" placeholder="Buscar por titulo" [(ngModel)]="title"/>
@@ -9,15 +9,33 @@
         </div>
       </div>
 
-      <h3>Positions list</h3>
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let ch of positions; let i = index" [class.active]="i == currentIndex" (click)="setActivePosition(ch, i)">
-          {{ch.title}}
-        </li>
-      </ul>
+      <h1 class="text-warning">Positions list</h1>
+      <div *ngIf="!buscar" style="text-align: left;">
+        <div *ngFor="let ch of positions; let i = index" [class.active]="i == currentIndex" (click)="setActivePosition(ch, i)" class="posicionar">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title mt-3">{{ch.title}}</h5>
+              <p class="card-text">{{ch.description}}</p>
+              <button class="btn btn-success mb-3" type="button">Apuntarse</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="buscar">
+        <div *ngFor="let ch of positions; let i = index" [class.active]="i == currentIndex" (click)="setActivePosition(ch, i)" class="busqueda">
+          <div class="card" *ngIf="ch.title == title">
+            <div class="card-body">
+              <h5 class="card-title mt-3">{{ch.title}}</h5>
+              <p class="card-text">{{ch.description}}</p>
+              <button class="btn btn-success mb-3" type="button">Apuntarse</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
-    <div class="col">
+    <!-- <div class="col">
 
       <div *ngIf="currentPosition.id">
         <h3 class="mt-3">Position</h3>
@@ -45,6 +63,6 @@
 
       </div>
 
-    </div>
+    </div> -->
   </div>
 </div>

@@ -14,6 +14,8 @@ export class PositionListComponent implements OnInit {
   currentIndex = -1;
   title = '';
 
+  buscar = false;
+
   constructor(private positionService: PositionService) { }
 
   ngOnInit(): void {
@@ -45,14 +47,17 @@ export class PositionListComponent implements OnInit {
   }
 
   searchTitle(): void {
+    this.buscar = true;
+
     this.currentPosition = {};
     this.currentIndex = -1;
-    alert(this.title)
+
     this.positionService.getByTitle(this.title)
       .subscribe(
         data => {
           this.positions = data;
           console.log(data);
+          this.buscar = false;
         },
         error => {
           console.log(error);
