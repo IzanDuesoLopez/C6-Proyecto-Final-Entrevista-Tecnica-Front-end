@@ -23,4 +23,8 @@ export class PositionService {
   createPosition(data:any): Observable<any> {
     return this.http.post(baseUrl, data);
   }
+
+  deletePosition(id:any): Observable<any> {
+    return this.http.delete(baseUrl + '/' + id);
+  }
 }

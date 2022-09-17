@@ -15,23 +15,22 @@
           <a class="nav-link active" routerLink="/about-us"><i class="bi bi-envelope-fill"></i> Sobre Nosotros</a>
         </li>
       </ul>
-      <form class="mx-3" role="search">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Búsqueda" aria-label="Search" />
-          <button class="boton" type="button" routerLink="/positions">
-            <i class="bi bi-search"></i>
-          </button>
-        </div>
-      </form>
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active loginButton" aria-current="page" routerLink="/login" *ngIf="!loginService.isUserLoggedIn()"> <span class=""> Iniciar sesión </span><i
               class="bi bi-person-fill user"></i></a>
         </li>
+
+        <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
+          <a class="nav-link active loginButton" aria-current="page" routerLink="/create-position" type="button"> <span class=""> Crear puesto</span><i class="bi bi-person-lines-fill"></i></a>
+        </li>
+        <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
+          <a class="nav-link active loginButton" aria-current="page" routerLink="/positions" type="button"> <span class=""> Posiciones </span><i class="bi bi-person-lines-fill"></i></a>
+        </li>
         <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
           <a class="nav-link active loginButton" aria-current="page" (click)="redirectProfileType()" type="button"> <span class=""> Perfil </span><i
             class="bi bi-person-fill user"></i></a>
-        </li>&nbsp;
+        </li>
         <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
           <a class="nav-link active loginButton" aria-current="page" routerLink="/logout"> <span class=""> Desconectar </span><i
               class="bi bi-person-fill user"></i></a>

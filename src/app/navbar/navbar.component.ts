@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
 
   username:any;
   user:any;
+  es_admin = false;
 
   constructor(
     private route:ActivatedRoute,
@@ -21,7 +22,20 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.username = sessionStorage.getItem("username");
 
+    this.usersService.findByUsername(this.username)
+    .subscribe(
+      result => {
+        this.user = result;
+        if(this.user.roles[0].name=="ADMIN"){
+          this.es_admin = true;
+        }
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   redirectProfileType(){

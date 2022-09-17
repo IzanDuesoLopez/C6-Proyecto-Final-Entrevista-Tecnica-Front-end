@@ -1,68 +1,22 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-12">
-
-      <div class="input-group mb-3 mt-3">
-        <input type="text" class="form-control" placeholder="Buscar por titulo" [(ngModel)]="title"/>
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" (click)="searchTitle()">Search</button>
-        </div>
+      <div>
+        <input type="text" class="form-control mt-4" placeholder="Buscar por titulo o descripción"
+          [(ngModel)]="search_title" />
       </div>
-
-      <h1 class="text-warning">Positions list</h1>
-      <div *ngIf="!buscar" style="text-align: left;">
-        <div *ngFor="let ch of positions; let i = index" [class.active]="i == currentIndex" (click)="setActivePosition(ch, i)" class="posicionar">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title mt-3">{{ch.title}}</h5>
-              <p class="card-text">{{ch.description}}</p>
-              <button id = i class="btn btn-success mb-3" type="button" [disabled]="clicked" (click)="saveCandidatePosition(i); clicked = true">Apuntarse</button>
-            </div>
+      <h1 class="mt-4">Positions list</h1>
+      <ng-container *ngFor="let pos of positions; let j = index;" [class.active]="j == currentIndex">
+        <div class="card mb-4 posicionar" style="width: 18rem;"
+          *ngIf="pos.title == search_title || (pos.title | lowercase).includes((search_title | lowercase)) || (pos.description | lowercase).includes((search_title | lowercase))">
+          <div class="card-body">
+            <h5 class="card-title mt-3">{{pos.title}}</h5>
+            <p class="card-text">{{pos.description}}</p>
+            <button id=i class="btn btn-success mb-3" type="button" [disabled]="botones[j]"
+              (click)="botones[j]=true; saveCandidatePosition(pos); setActivePosition(pos, j);">Apuntarse</button>
           </div>
         </div>
-      </div>
-
-      <div *ngIf="buscar">
-        <div *ngFor="let ch of positions; let i = index" [class.active]="i == currentIndex" (click)="setActivePosition(ch, i)" class="busqueda">
-          <div class="card" *ngIf="ch.title == title">
-            <div class="card-body">
-              <h5 class="card-title mt-3">{{ch.title}}</h5>
-              <p class="card-text">{{ch.description}}</p>
-              <button id = i class="btn btn-success mb-3" type="button" [disabled]="clicked" (click)="saveCandidatePosition(i); clicked = true">Apuntarse</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      </ng-container>
     </div>
-    <!-- <div class="col">
-
-      <div *ngIf="currentPosition.id">
-        <h3 class="mt-3">Position</h3>
-        <div>
-          <label class="bold">iD:</label>{{currentPosition.id}}
-        </div>
-        <div>
-          <label class="bold">Title:</label>{{currentPosition.title}}
-        </div>
-        <div>
-          <label class="bold">description:</label>{{currentPosition.description}}
-        </div>
-        <div>
-          <label class="bold">id_HR_Users:</label>{{currentPosition.id_HR_Users}}
-        </div>
-
-
-        <button class="btn btn-warning mt-1" routerLink="/characters_list/{{currentPosition.title}}">EDITAR</button>
-        <button class="btn btn-warning mt-1">BORRAR</button>
-      </div>
-
-      <div *ngIf="!currentPosition">
-        <br />
-        <p>Clica en una posición!</p>
-
-      </div>
-
-    </div> -->
   </div>
 </div>

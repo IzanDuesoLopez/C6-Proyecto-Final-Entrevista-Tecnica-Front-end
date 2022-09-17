@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CandidatePosition } from 'src/app/models/candidate-position.model';
 import { Position } from 'src/app/models/position.model';
 import { CandidatePositionService } from 'src/app/service/candidate-position.service';
@@ -11,13 +12,12 @@ import { PositionService } from 'src/app/service/position.service';
 })
 export class PositionListComponent implements OnInit {
 
-  // Deshabilita botones.
-  clicked:any;
+  botones = Array().fill(false);
 
   positions?: Position[];
   currentPosition: Position = {};
   currentIndex = -1;
-  title = '';
+  search_title = '';
 
   buscar = false;
 
@@ -32,7 +32,8 @@ export class PositionListComponent implements OnInit {
   submitted = false;
 
   constructor(private positionService: PositionService,
-    private candidatePositionService: CandidatePositionService) { }
+    private candidatePositionService: CandidatePositionService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.retrievePositions();
@@ -60,6 +61,8 @@ export class PositionListComponent implements OnInit {
   setActivePosition(position: Position, index: number): void {
     this.currentPosition = position;
     this.currentIndex = index;
+    alert("Te has apuntado a la candidatura " + position.title)
+    //this.router.navigateByUrl('/profile')
   }
 
   searchTitle(): void {
@@ -68,7 +71,7 @@ export class PositionListComponent implements OnInit {
     this.currentPosition = {};
     this.currentIndex = -1;
 
-    this.positionService.getByTitle(this.title)
+    this.positionService.getByTitle(this.search_title)
       .subscribe(
         data => {
           this.positions = data;
@@ -93,7 +96,6 @@ export class PositionListComponent implements OnInit {
 
     this.candidatePositionService.createCandidatePosition(data).subscribe(
       response => {
-        alert(i)
         console.log(response);
         this.submitted = true;
       },
@@ -114,5 +116,17 @@ export class PositionListComponent implements OnInit {
       id_position: ''
     };
   }
+
+  // removePosition(){
+  //   this.positionService.deletePosition(31).subscribe(
+  //     response =>{
+  //       console.log(response),
+  //       this.ngOnInit()
+  //     },
+  //     error => {
+  //       console.log(error)
+  //     }
+  //   )
+  // }
 
 }
