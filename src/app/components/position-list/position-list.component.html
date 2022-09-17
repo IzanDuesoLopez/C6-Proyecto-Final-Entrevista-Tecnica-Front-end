@@ -28,7 +28,7 @@
             <div class="card-body">
               <h5 class="card-title mt-3">{{ch.title}}</h5>
               <p class="card-text">{{ch.description}}</p>
-              <button class="btn btn-success mb-3" type="button">Apuntarse</button>
+              <button id = i class="btn btn-success mb-3" type="button" [disabled]="clicked" (click)="saveCandidatePosition(i); clicked = true">Apuntarse</button>
             </div>
           </div>
         </div>
