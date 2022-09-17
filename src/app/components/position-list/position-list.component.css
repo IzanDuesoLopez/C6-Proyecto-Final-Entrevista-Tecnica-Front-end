@@ -1,0 +1,19 @@
+li:hover{
+  background-color: rgb(141, 236, 141);
+}
+
+.posicionar{
+  width: 25rem;
+  display: inline-block;
+  margin: 1rem !important;
+}
+
+.busqueda{
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.tam{
+  max-width: 25%;
+  max-height: 25%;
+}
