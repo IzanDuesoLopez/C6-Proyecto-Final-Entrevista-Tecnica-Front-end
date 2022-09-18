@@ -138,3 +138,40 @@ th {
 td {
   border: 1px solid blue;
 }
+
+.skillFloatUl {
+  list-style-type: none;
+}
+
+.skillFloat {
+  border: solid 1px rgb(165, 165, 165);
+  border-radius: 50px;
+  margin: 5px;
+  padding: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  float: left;
+}
+
+.skillFloat button {
+  border-radius: 50%;
+  content: "\00d7";
+  background-color: red;
+  border: none;
+  color: white;
+  transition-duration: 0.4s;
+  border: 1px solid red;
+  padding: 0px 7px;
+}
+
+.skillFloat button:hover {
+  border: none;
+  transition-duration: 0.4s;
+  background-color: white;
+  color: black;
+  border: 1px solid red
+}
+
+.colorLightGray{
+  color: rgb(165, 165, 165);
+}

@@ -239,7 +239,7 @@ export class HrusersProfileComponent implements OnInit {
 
   // Delete user.
   deleteUser(id: any) {
-    if (confirm('Are you sure you want to delete the user with ID: ' + id + '?')) {
+    if (confirm('Seguro que quieres eliminar este usuario con la ID: ' + id + '?')) {
       this.usersService.delete(id)
         .subscribe(
           response => (
@@ -307,7 +307,7 @@ export class HrusersProfileComponent implements OnInit {
   }
 
   deleteCandidateSkill(id:any) {
-    if (confirm('Are you sure you want to delete that skill from this user?')) {
+    if (confirm('Seguro que quieres eliminar la habilidad con ID: ' + id + ' de este usuario?')) {
       this.candidateSkillsService.delete(id)
         .subscribe(
           response => (
@@ -397,7 +397,7 @@ export class HrusersProfileComponent implements OnInit {
 
   // Delete skill.
   deleteSkill(id: any) {
-    if (confirm('Are you sure you want to delete the skill with ID: ' + id + '?')) {
+    if (confirm('Seguro que quieres eliminar la habilidad con la ID: ' + id + '?')) {
       this.skillsService.delete(id)
         .subscribe(
           response => (

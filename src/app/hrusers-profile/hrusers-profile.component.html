@@ -139,9 +139,9 @@
               </div>
               <div class="row text-start">
                 <h4>Set de habilidades actual:</h4>
-                <ng-container *ngFor="let skill of skillsFromUser">
-                  <span class="skillFloat">{{ skill.skill.name }} | {{ skill.value }} | {{ skill.notes }} <button class="botoneliminar" (click)="deleteCandidateSkill( skill.id )">x</button></span>
-                </ng-container>
+                <ul class="skillFloatUl">
+                  <li class="skillFloat" *ngFor="let skill of skillsFromUser">{{ skill.skill.name }}<span class="colorLightGray"> | </span>{{ skill.value }}<span class="colorLightGray"> | </span>{{ skill.notes }} <button class="" (click)="deleteCandidateSkill( skill.id )">x</button></li>
+                </ul>
               </div>
               <hr>
               <div class="row">
