@@ -17,8 +17,6 @@ export class CandidateSkillsService {
   }
 
   add(data: any): Observable<any> {
-    console.log("DATA-------------------------\n" + data)
-    console.log(data)
     return this.http
       .post<any>(baseUrlCandidateSkills,  data );
   }

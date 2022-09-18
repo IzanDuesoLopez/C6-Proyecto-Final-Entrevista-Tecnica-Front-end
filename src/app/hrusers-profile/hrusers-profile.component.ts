@@ -277,7 +277,6 @@ export class HrusersProfileComponent implements OnInit {
             .subscribe(
               result => {
                 this.skillsFromUser = result;
-                console.log("USER TO AVALUE: " + this.userToAvalue.name + "\n" + "SKILLS FROM USER: " + this.skillsFromUser)
                 let auxArr: any = []
                 for (let i = 0; i < this.skillsFromUser.length; i++) {
                   if(this.userToAvalue.id == this.skillsFromUser[i].candidate.id){
@@ -285,7 +284,6 @@ export class HrusersProfileComponent implements OnInit {
                   }
                 }
                 this.skillsFromUser = auxArr
-                console.log(this.skillsFromUser[0])
               }
             )
         }
@@ -299,7 +297,6 @@ export class HrusersProfileComponent implements OnInit {
     this.candidateSkill.notes = "Notable"
     this.candidateSkill.skill = s
     this.candidateSkill.candidate = this.userToAvalue
-    console.log(this.candidateSkill)
     this.candidateSkillsService.add(this.candidateSkill)
     .subscribe(
       result => {
