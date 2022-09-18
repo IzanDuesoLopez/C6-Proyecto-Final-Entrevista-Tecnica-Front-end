@@ -13,7 +13,6 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<User[]> {
-    console.log(this.http.get<User[]>(baseUrl))
     return this.http.get<User[]>(baseUrl);
   }
 
@@ -21,7 +20,7 @@ export class UsersService {
     return this.http.get<any>(baseUrl + '/username/' + username);
   }
 
-  add(name: any, surname: any, username: any, password: any) {
+  add(name: any, surname: any, username: any, password: any): Observable<any>{
     let enabled: boolean = true
     let roles: any = [
       {

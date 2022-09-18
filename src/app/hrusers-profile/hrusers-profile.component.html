@@ -22,7 +22,7 @@
           <div class="container text-center">
 
             <button type="button" class="btn btn-primary mt-2" (click)="showUsers()">Usuarios</button>&nbsp;
-            <button type="button" class="btn btn-primary mt-2" (click)="showSkills()">Skills</button>
+            <button type="button" class="btn btn-primary mt-2" (click)="showSkills()">Habilidades</button>
 
             <div class="row" *ngIf="showUser">
               <div class="col">
@@ -51,7 +51,7 @@
                       <td>{{ u.roles[0].name }}</td>
                       <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                          <button type="button" class="botonvisualizar"><i class="bi bi-eye-fill"></i></button>
+                          <button type="button" class="botonvisualizar" (click)="showsUserToAvalue( u.username )"><i class="bi bi-eye-fill"></i></button>
                           <button type="button" class="botoneditar" (click)="showsUserToEdit( u.username )"><i class="bi bi-pencil-fill"></i></button>
                           <button type="button" class="botoneliminar" (click)="deleteUser( u.id )"><i
                               class="bi bi-person-x-fill"></i></button>
@@ -117,13 +117,71 @@
               </div>
             </div>
 
+            <div class="row" *ngIf="showUserToAvalue">
+              <div class="col">
+
+                <table class="table fondotabla mt-3">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Rol</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">{{ userToAvalue.id }}</th>
+                    <td>{{ userToAvalue.name }}</td>
+                    <td>{{ userToAvalue.surname }}</td>
+                    <td>{{ userToAvalue.username }}</td>
+                    <td>{{ userToAvalue.roles[0].name }}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="row text-start">
+                <h4>Set de habilidades actual:</h4>
+                <ng-container *ngFor="let skill of skillsFromUser">
+                  <span class="skillFloat">{{ skill.skill.name }} | {{ skill.value }} | {{ skill.notes }} <button class="botoneliminar" (click)="deleteCandidateSkill( skill.id )">x</button></span>
+                </ng-container>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col">
+                  <div class="izq mb-1">
+                    <button type="button" class="botonvisualizar mt-2" (click)="showAddSkills()">Añadir habilidad</button>
+                  </div>
+                  <div class="text-end subir mb-2">
+                    <input type="text" placeholder="Buscar habilidad" aria-label="Search" [(ngModel)]="searchSkills">
+                  </div>
+
+                  <table class="table fondotabla">
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">CRUD</th>
+                    </tr>
+                    <ng-container *ngFor="let s of skills">
+                      <tr *ngIf="s.id == searchSkills || (s.name | lowercase).includes((searchSkills | lowercase))">
+                        <th scope="row">{{ s.id }}</th>
+                        <td>{{ s.name }}</td>
+                        <td>
+                          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="botoneditar" (click)="addSkillToUser( s )"><i class="bi bi-plus-circle-fill"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                    </ng-container>
+                  </table>
+                </div>
+              </div>
+            </div>
+
             <div class="row" *ngIf="showSkill">
               <div class="col">
                 <div class="izq mb-1">
-                  <button type="button" class="botonvisualizar mt-2" (click)="showAddSkills()">Añadir skill</button>
+                  <button type="button" class="botonvisualizar mt-2" (click)="showAddSkills()">Añadir habilidad</button>
                 </div>
                 <div class="text-end subir mb-2">
-                  <input type="text" placeholder="Buscar skill" aria-label="Search" [(ngModel)]="searchSkills">
+                  <input type="text" placeholder="Buscar habilidad" aria-label="Search" [(ngModel)]="searchSkills">
                 </div>
 
                 <table class="table fondotabla">
