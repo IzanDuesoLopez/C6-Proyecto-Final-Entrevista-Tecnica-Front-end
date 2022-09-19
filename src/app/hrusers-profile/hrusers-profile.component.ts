@@ -302,10 +302,12 @@ export class HrusersProfileComponent implements OnInit {
             .subscribe(
               result => {
                 this.candidatePositionsFromUser = result
-                console.log(this.candidatePositionsFromUser[0].position)
                 let auxArr: any = []
                 for (let i = 0; i < this.candidatePositionsFromUser.length; i++) {
                   if(this.userToAvalue.id == this.candidatePositionsFromUser[i].candidate.id){
+                    this.candidatePositionsFromUser[i].registry_date = this.candidatePositionsFromUser[i].registry_date.substring(0,10)
+                    this.candidatePositionsFromUser[i].test_date = this.candidatePositionsFromUser[i].test_date.substring(0,10)
+                    this.candidatePositionsFromUser[i].completion_date = this.candidatePositionsFromUser[i].completion_date.substring(0,10)
                     auxArr.push(this.candidatePositionsFromUser[i])
                   }
                 }
