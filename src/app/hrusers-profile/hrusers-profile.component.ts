@@ -291,10 +291,27 @@ export class HrusersProfileComponent implements OnInit {
 
   }
 
-  // FALTA OPCIONES MANUALES DESDE UNA ALERT
+  // It allows the admin to add the selected skill to the user and avalue with a numeric note.
   addSkillToUser(s:any) {
-    this.candidateSkill.value = 8
-    this.candidateSkill.notes = "Notable"
+
+    this.candidateSkill.value = prompt("Que nota le quieres poner a este usuario para la habilidad seleccionada?")
+
+    if(this.candidateSkill.value < 0){
+      this.candidateSkill.value = 0
+      this.candidateSkill.notes = "Suspenso"
+    } else if (this.candidateSkill.value >= 0 && this.candidateSkill.value < 5){
+      this.candidateSkill.notes = "Suspenso"
+    } else if (this.candidateSkill.value >= 5 && this.candidateSkill.value < 7){
+      this.candidateSkill.notes = "Bien"
+    } else if (this.candidateSkill.value >= 7 && this.candidateSkill.value < 9){
+      this.candidateSkill.notes = "Notable"
+    } else if (this.candidateSkill.value >= 9 && this.candidateSkill.value < 11){
+      this.candidateSkill.notes = "Excelente"
+    } else if (this.candidateSkill.value > 10){
+      this.candidateSkill.value = 10
+      this.candidateSkill.notes = "Excelente"
+    }
+
     this.candidateSkill.skill = s
     this.candidateSkill.candidate = this.userToAvalue
     this.candidateSkillsService.add(this.candidateSkill)
