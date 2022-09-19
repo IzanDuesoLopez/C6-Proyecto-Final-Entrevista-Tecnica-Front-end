@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CandidateSkill } from '../models/candidate-skill.model';
 import { Skill } from '../models/skill.model';
 import { User } from '../models/user.model';
+import { CandidateSkillsService } from '../service/candidate-skills.service';
 import { SkillsService } from '../service/skills.service';
 import { UsersService } from '../service/users.service';
 
@@ -14,12 +16,12 @@ import { UsersService } from '../service/users.service';
 export class HrusersProfileComponent implements OnInit {
 
   // Variables for admin users.
-  username:any;
-  user:any;
+  username: any;
+  user: any;
 
   // Contains all users and skills.
-  users:any = null;
-  skills:any = null;
+  users: any = null;
+  skills: any = null;
 
   // Activates and deactivates windows with the functionalities of each field.
   showUser = false;
@@ -53,6 +55,28 @@ export class HrusersProfileComponent implements OnInit {
   }
   showUserToEdit = false
 
+  // Avalue user.
+  userToAvalue: User = {
+    id: '',
+    name: '',
+    surname: '',
+    username: '',
+    enabled: '',
+    roles: [{}]
+  }
+  showUserToAvalue = false
+
+  skillsFromUser: any
+
+  candidateSkill: CandidateSkill = {
+    id: '',
+    value: '',
+    notes: '',
+    skill: new Skill,
+    candidate: new User
+  }
+
+  // Variables for skill windows functionalities.
   // Add skill.
   skillToAdd: Skill = {
     name: ''
@@ -72,8 +96,9 @@ export class HrusersProfileComponent implements OnInit {
   // Default constructor.
   constructor(
     private router: Router,
-    private usersService:UsersService,
-    private skillsService:SkillsService
+    private usersService: UsersService,
+    private skillsService: SkillsService,
+    private candidateSkillsService: CandidateSkillsService
   ) { }
 
   ngOnInit(): void {
@@ -82,39 +107,39 @@ export class HrusersProfileComponent implements OnInit {
     this.username = sessionStorage.getItem("username");
 
     this.usersService.findByUsername(this.username)
-    .subscribe(
-      result => {
-        this.user = result;
-      },
-      error => {
-        console.log(error)
-      }
-    )
+      .subscribe(
+        result => {
+          this.user = result;
+        },
+        error => {
+          console.log(error)
+        }
+      )
 
     // Gets all the users.
     this.usersService.getAll()
-    .subscribe(
-      result => {
-        this.users = result;
-      }
-    )
+      .subscribe(
+        result => {
+          this.users = result;
+        }
+      )
 
     // Gets all the skills.
     this.skillsService.getAll()
-    .subscribe(
-      result => {
-        this.skills = result;
-      }
-    )
+      .subscribe(
+        result => {
+          this.skills = result;
+        }
+      )
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////
   //             Functions that shows main functionalities of the 'ADMIN' users.
   ///////////////////////////////////////////////////////////////////////////////////////////////
 
-  // Users
-  showUsers(){
-    this.showAddUser = false;
+  // Users.
+  showUsers() {
+    this.showAddUser = false; this.showUserToAvalue = false
     this.submitted = false
     this.showUser = true;
     this.showSkill = false;
@@ -123,9 +148,9 @@ export class HrusersProfileComponent implements OnInit {
     this.showAddSkill = false
   }
 
-  // Skills
-  showSkills(){
-    this.showAddUser = false;
+  // Skills.
+  showSkills() {
+    this.showAddUser = false; this.showUserToAvalue = false
     this.submitted = false
     this.showUser = false;
     this.showSkill = true;
@@ -142,8 +167,8 @@ export class HrusersProfileComponent implements OnInit {
   // Insert user.
 
   // Shows panel to insert a new user.
-  showAddUsers(){
-    this.showAddUser = true;
+  showAddUsers() {
+    this.showAddUser = true; this.showUserToAvalue = false
     this.submitted = false
     this.showUser = false;
     this.showSkill = false;
@@ -153,26 +178,26 @@ export class HrusersProfileComponent implements OnInit {
   }
 
   // Registers new user.
-  addUser(){
+  addUser() {
     this.submitted = false
-    this.usersService.add(this.userToAdd.name, this.userToAdd.surname, this.userToAdd.username, this.userToAddPassword )
-    .subscribe(
-      response => (
-        console.log(response),
-        this.submitted = true,
-        this.ngOnInit()
-      ),
-      error => {
-        console.log(error.message)
-      }
-    )
+    this.usersService.add(this.userToAdd.name, this.userToAdd.surname, this.userToAdd.username, this.userToAddPassword)
+      .subscribe(
+        response => (
+          console.log(response),
+          this.submitted = true,
+          this.ngOnInit()
+        ),
+        error => {
+          console.log(error.message)
+        }
+      )
   }
 
   // Update user.
 
   // Shows panel to edit the selected user with its information.
-  showsUserToEdit(username:any){
-    this.showAddUser = false;
+  showsUserToEdit(username: any) {
+    this.showAddUser = false; this.showUserToAvalue = false
     this.submitted = false
     this.showUser = false;
     this.showSkill = false;
@@ -181,15 +206,15 @@ export class HrusersProfileComponent implements OnInit {
     this.showAddSkill = false
     this.userToEdit.username = username
     this.usersService.findByUsername(this.userToEdit.username)
-    .subscribe(
-      result => {
-        this.userToEdit = result;
-      }
-    )
+      .subscribe(
+        result => {
+          this.userToEdit = result;
+        }
+      )
   }
 
   // Saves the new data and updates the user.
-  updateUser(id:any){
+  updateUser(id: any) {
     this.submitted = false
     this.showUserToEdit = true
     const data = {
@@ -213,18 +238,103 @@ export class HrusersProfileComponent implements OnInit {
   }
 
   // Delete user.
-  deleteUser(id:any){
-    if (confirm('Are you sure you want to delete the user with ID: ' + id + '?')) {
+  deleteUser(id: any) {
+    if (confirm('Seguro que quieres eliminar este usuario con la ID: ' + id + '?')) {
       this.usersService.delete(id)
+        .subscribe(
+          response => (
+            console.log(response),
+            this.ngOnInit()
+          ),
+          error => {
+            console.log(error)
+          }
+        );
+    }
+  }
+
+  // Add skills to specific user.
+
+  // Shows panel to avalue with skills the selected user.
+  showsUserToAvalue(username: any) {
+
+    this.skillsFromUser = []
+
+    this.showAddUser = false; this.showUserToAvalue = false
+    this.submitted = false
+    this.showUser = false;
+    this.showSkill = false;
+    this.showUserToEdit = false
+    this.showSkillToEdit = false
+    this.showAddSkill = false
+    this.showUserToAvalue = true
+    this.userToEdit.username = username
+    this.usersService.findByUsername(this.userToEdit.username)
       .subscribe(
-        response => (
-          console.log(response),
-          this.ngOnInit()
-        ),
-        error => {
-          console.log(error)
+        result => {
+          this.userToAvalue = result;
+          this.candidateSkillsService.getAll()
+            .subscribe(
+              result => {
+                this.skillsFromUser = result;
+                let auxArr: any = []
+                for (let i = 0; i < this.skillsFromUser.length; i++) {
+                  if(this.userToAvalue.id == this.skillsFromUser[i].candidate.id){
+                    auxArr.push(this.skillsFromUser[i])
+                  }
+                }
+                this.skillsFromUser = auxArr
+              }
+            )
         }
-      );
+      )
+
+  }
+
+  // It allows the admin to add the selected skill to the user and avalue with a numeric note.
+  addSkillToUser(s:any) {
+
+    this.candidateSkill.value = prompt("Que nota le quieres poner a este usuario para la habilidad seleccionada?")
+
+    if(this.candidateSkill.value < 0){
+      this.candidateSkill.value = 0
+      this.candidateSkill.notes = "Suspenso"
+    } else if (this.candidateSkill.value >= 0 && this.candidateSkill.value < 5){
+      this.candidateSkill.notes = "Suspenso"
+    } else if (this.candidateSkill.value >= 5 && this.candidateSkill.value < 7){
+      this.candidateSkill.notes = "Bien"
+    } else if (this.candidateSkill.value >= 7 && this.candidateSkill.value < 9){
+      this.candidateSkill.notes = "Notable"
+    } else if (this.candidateSkill.value >= 9 && this.candidateSkill.value < 11){
+      this.candidateSkill.notes = "Excelente"
+    } else if (this.candidateSkill.value > 10){
+      this.candidateSkill.value = 10
+      this.candidateSkill.notes = "Excelente"
+    }
+
+    this.candidateSkill.skill = s
+    this.candidateSkill.candidate = this.userToAvalue
+    this.candidateSkillsService.add(this.candidateSkill)
+    .subscribe(
+      result => {
+        console.log("added")
+        this.showsUserToAvalue(this.userToAvalue.username)
+      }
+    )
+  }
+
+  deleteCandidateSkill(id:any) {
+    if (confirm('Seguro que quieres eliminar la habilidad con ID: ' + id + ' de este usuario?')) {
+      this.candidateSkillsService.delete(id)
+        .subscribe(
+          response => (
+            console.log(response),
+            this.showsUserToAvalue(this.userToAvalue.username)
+          ),
+          error => {
+            console.log(error)
+          }
+        );
     }
   }
 
@@ -234,9 +344,9 @@ export class HrusersProfileComponent implements OnInit {
 
   // Insert skill.
 
-  // Shows panel to insert a new user.
-  showAddSkills(){
-    this.showAddUser = false;
+  // Shows panel to insert a new skill.
+  showAddSkills() {
+    this.showAddUser = false; this.showUserToAvalue = false
     this.submitted = false
     this.showUser = false;
     this.showSkill = false;
@@ -245,27 +355,27 @@ export class HrusersProfileComponent implements OnInit {
     this.showAddSkill = true
   }
 
-  // Registers new user.
-  addSkill(){
+  // Registers new skill.
+  addSkill() {
     this.submitted = false
-    this.skillsService.add(this.skillToAdd.name )
-    .subscribe(
-      response => (
-        console.log(response),
-        this.submitted = true,
-        this.ngOnInit()
-      ),
-      error => {
-        console.log(error.message)
-      }
-    )
+    this.skillsService.add(this.skillToAdd.name)
+      .subscribe(
+        response => (
+          console.log(response),
+          this.submitted = true,
+          this.ngOnInit()
+        ),
+        error => {
+          console.log(error.message)
+        }
+      )
   }
 
   // Update skill.
 
   // Shows panel to edit the selected skill with its information.
-  showsSkillToEdit(id:any){
-    this.showAddUser = false;
+  showsSkillToEdit(id: any) {
+    this.showAddUser = false; this.showUserToAvalue = false
     this.submitted = false
     this.showUser = false;
     this.showSkill = false;
@@ -274,15 +384,15 @@ export class HrusersProfileComponent implements OnInit {
     this.showAddSkill = false
     this.skillToEdit.id = id
     this.skillsService.get(this.skillToEdit.id)
-    .subscribe(
-      result => {
-        this.skillToEdit = result;
-      }
-    )
+      .subscribe(
+        result => {
+          this.skillToEdit = result;
+        }
+      )
   }
 
   // Saves the new data and updates the skill.
-  updateSkill(id:any){
+  updateSkill(id: any) {
     this.submitted = false
     this.showSkillToEdit = true
     const data = {
@@ -303,18 +413,18 @@ export class HrusersProfileComponent implements OnInit {
   }
 
   // Delete skill.
-  deleteSkill(id:any){
-    if (confirm('Are you sure you want to delete the skill with ID: ' + id + '?')) {
+  deleteSkill(id: any) {
+    if (confirm('Seguro que quieres eliminar la habilidad con la ID: ' + id + '?')) {
       this.skillsService.delete(id)
-      .subscribe(
-        response => (
-          console.log(response),
-          this.ngOnInit()
-        ),
-        error => {
-          console.log(error)
-        }
-      );
+        .subscribe(
+          response => (
+            console.log(response),
+            this.ngOnInit()
+          ),
+          error => {
+            console.log(error)
+          }
+        );
     }
   }
 

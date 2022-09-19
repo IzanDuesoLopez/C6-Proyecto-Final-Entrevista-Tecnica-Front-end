@@ -13,7 +13,6 @@ export class SkillsService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Skill[]> {
-    console.log(this.http.get<Skill[]>(baseUrlSkills))
     return this.http.get<Skill[]>(baseUrlSkills);
   }
 
@@ -21,7 +20,7 @@ export class SkillsService {
     return this.http.get(baseUrlSkills + '/' + id);
   }
 
-  add(name: any) {
+  add(name: any): Observable<any> {
     return this.http
       .post<any>(baseUrlSkills, { name });
   }
