@@ -122,7 +122,6 @@ export class PositionListComponent implements OnInit {
               }
             );
 
-
           },
           error => {
             console.log(error)
@@ -136,6 +135,8 @@ export class PositionListComponent implements OnInit {
     )
 
   }
+
+
 
   newCandidatePosition(): void {
     this.submitted = false;
