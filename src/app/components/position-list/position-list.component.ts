@@ -119,6 +119,7 @@ export class PositionListComponent implements OnInit {
       }
 
     )
+
   }
 
   newCandidatePosition(): void {
