@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CandidatePosition } from '../models/candidate-position.model';
 import { CandidateSkill } from '../models/candidate-skill.model';
 import { Skill } from '../models/skill.model';
 import { User } from '../models/user.model';
+import { CandidatePositionService } from '../service/candidate-position.service';
 import { CandidateSkillsService } from '../service/candidate-skills.service';
 import { SkillsService } from '../service/skills.service';
 import { UsersService } from '../service/users.service';
@@ -30,6 +32,7 @@ export class HrusersProfileComponent implements OnInit {
   // Search
   searchUsers = ''
   searchSkills = ''
+  searchExams = ''
 
   // Variables for user windows functionalities.
   // Add user.
@@ -56,6 +59,9 @@ export class HrusersProfileComponent implements OnInit {
   showUserToEdit = false
 
   // Avalue user.
+  show_skills = true
+  show_exams = false
+
   userToAvalue: User = {
     id: '',
     name: '',
@@ -67,6 +73,7 @@ export class HrusersProfileComponent implements OnInit {
   showUserToAvalue = false
 
   skillsFromUser: any
+  candidatePositionsFromUser: any
 
   candidateSkill: CandidateSkill = {
     id: '',
@@ -98,7 +105,8 @@ export class HrusersProfileComponent implements OnInit {
     private router: Router,
     private usersService: UsersService,
     private skillsService: SkillsService,
-    private candidateSkillsService: CandidateSkillsService
+    private candidateSkillsService: CandidateSkillsService,
+    private candidatePositionService: CandidatePositionService
   ) { }
 
   ngOnInit(): void {
@@ -253,7 +261,7 @@ export class HrusersProfileComponent implements OnInit {
     }
   }
 
-  // Add skills to specific user.
+  // Avalue the specific user.
 
   // Shows panel to avalue with skills the selected user.
   showsUserToAvalue(username: any) {
@@ -273,6 +281,8 @@ export class HrusersProfileComponent implements OnInit {
       .subscribe(
         result => {
           this.userToAvalue = result;
+
+          // For the 'Set of skills' section.
           this.candidateSkillsService.getAll()
             .subscribe(
               result => {
@@ -286,10 +296,29 @@ export class HrusersProfileComponent implements OnInit {
                 this.skillsFromUser = auxArr
               }
             )
+
+          // For the 'Technical tests' section.
+          this.candidatePositionService.getAll()
+            .subscribe(
+              result => {
+                this.candidatePositionsFromUser = result
+                console.log(this.candidatePositionsFromUser[0].position)
+                let auxArr: any = []
+                for (let i = 0; i < this.candidatePositionsFromUser.length; i++) {
+                  if(this.userToAvalue.id == this.candidatePositionsFromUser[i].candidate.id){
+                    auxArr.push(this.candidatePositionsFromUser[i])
+                  }
+                }
+                this.candidatePositionsFromUser = auxArr
+
+              }
+            )
         }
       )
 
   }
+
+  // Add skills to specific user.
 
   // It allows the admin to add the selected skill to the user and avalue with a numeric note.
   addSkillToUser(s:any) {
@@ -323,6 +352,7 @@ export class HrusersProfileComponent implements OnInit {
     )
   }
 
+  // Deletes a skill from a candidate.
   deleteCandidateSkill(id:any) {
     if (confirm('Seguro que quieres eliminar la habilidad con ID: ' + id + ' de este usuario?')) {
       this.candidateSkillsService.delete(id)
@@ -336,6 +366,45 @@ export class HrusersProfileComponent implements OnInit {
           }
         );
     }
+  }
+
+  // Functions to edit the candidatePoitions for the selected user.
+  editTestDate(cp:CandidatePosition){
+    cp.test_date = prompt("En que fecha quieres realizar esta prueba técnica?", "YYYY-MM-DD")
+    this.candidatePositionService.updateCandidatePosition(cp.id, cp)
+    .subscribe(
+      response => (
+        console.log(response),
+        this.showsUserToAvalue(this.userToAvalue.username)
+      )
+    )
+  }
+
+  editCompletitionDate(cp:CandidatePosition){
+    cp.completion_date = prompt("En que fecha se ha completado esta prueba técnica?", "YYYY-MM-DD")
+    this.candidatePositionService.updateCandidatePosition(cp.id, cp)
+    .subscribe(
+      response => (
+        console.log(response),
+        this.showsUserToAvalue(this.userToAvalue.username)
+      )
+    )
+  }
+
+  editResult(cp:CandidatePosition){
+    cp.result = prompt("Con que nota avaluas esta prueba técnica?", "1-10")
+    if(cp.result < 0){
+      cp.result = 0
+    } else if (cp.result > 10){
+      cp.result = 10
+    }
+    this.candidatePositionService.updateCandidatePosition(cp.id, cp)
+    .subscribe(
+      response => (
+        console.log(response),
+        this.showsUserToAvalue(this.userToAvalue.username)
+      )
+    )
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////
