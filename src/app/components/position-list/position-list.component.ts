@@ -15,11 +15,13 @@ export class PositionListComponent implements OnInit {
 
   nom_usuario_temp: any;
   datos_candidato: any;
+  datos_posicion: any;
 
   botones = Array().fill(false);
 
   positions?: Position[];
   currentPosition: Position = {};
+  posicion_temp: Position = {};
   currentIndex = -1;
   search_title = '';
 
@@ -95,24 +97,37 @@ export class PositionListComponent implements OnInit {
     this.userService.findByUsername(this.nom_usuario_temp).subscribe(
       data => {
         this.datos_candidato = data;
-        console.log(this.datos_candidato);
-        const datos = {
-          registry_date: this.candidatePosition.registry_date,
-          test_date: null,
-          completion_date: null,
-          result: this.candidatePosition.result,
-          candidate: this.datos_candidato
-        };
 
-        this.candidatePositionService.createCandidatePosition(datos).subscribe(
-          response => {
-            console.log(response);
-            this.submitted = true;
+        this.positionService.getByTitle(this.currentPosition.title).subscribe(
+          datosposition => {
+            this.datos_posicion = datosposition;
+            this.posicion_temp = this.datos_posicion[0];
+            console.log(this.posicion_temp)
+            const datos = {
+              registry_date: this.candidatePosition.registry_date,
+              test_date: null,
+              completion_date: null,
+              result: this.candidatePosition.result,
+              candidate: this.datos_candidato,
+              position: this.posicion_temp
+            };
+
+            this.candidatePositionService.createCandidatePosition(datos).subscribe(
+              response => {
+                console.log(response);
+                this.submitted = true;
+              },
+              error => {
+                console.log(error);
+              }
+            );
+
+
           },
           error => {
-            console.log(error);
+            console.log(error)
           }
-        );
+        )
       },
       error => {
         console.log(error);
