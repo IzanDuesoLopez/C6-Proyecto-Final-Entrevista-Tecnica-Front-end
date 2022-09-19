@@ -36,7 +36,7 @@ export class CandidatesProfileComponent implements OnInit {
 
         for (let i = 0; i < this.candidatePositions.length; i++) {
           this.currentPosition = this.candidatePositions[i];
-          if(this.currentPosition.candidate.username == this.nom_usuario_temp){
+          if(this.currentPosition.candidate.name == this.nom_usuario_temp){
             this.candidatePositionsFinales?.push(this.currentPosition);
             console.log(this.currentPosition.candidate.name)
           }

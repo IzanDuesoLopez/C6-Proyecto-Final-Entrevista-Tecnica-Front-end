@@ -31,7 +31,7 @@ export class PositionListComponent implements OnInit {
     registry_date: new Date(),
     test_date: new Date(),
     completion_date: new Date(),
-    result: 10,
+    result: '',
     candidate: '',
     position: ''
   };
@@ -144,7 +144,7 @@ export class PositionListComponent implements OnInit {
       registry_date: new Date(),
       test_date: new Date(),
       completion_date: new Date(),
-      result: 10,
+      result:'',
       candidate: '',
       position: ''
     };
