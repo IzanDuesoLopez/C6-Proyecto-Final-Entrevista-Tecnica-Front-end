@@ -4,6 +4,6 @@ export class CandidatePosition {
   test_date?:any;
   completion_date?:any;
   result?:any;
-  id_candidate?:any;
-  id_position?:any;
+  candidate?:any;
+  position?:any;
 }

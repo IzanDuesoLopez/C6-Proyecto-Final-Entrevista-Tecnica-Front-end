@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CandidatePosition } from '../models/candidate-position.model';
+import { CandidatePositionService } from '../service/candidate-position.service';
 
 @Component({
   selector: 'app-candidates-profile',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidatesProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private candidatePositionService: CandidatePositionService) { }
+
+  candidatePositions?: CandidatePosition[];
 
   ngOnInit(): void {
+  }
+
+  getCandidatePositions(): void {
+    this.candidatePositionService.getAllCandidatesJson().subscribe(
+      data => {
+        this.candidatePositions = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
 }

@@ -4,6 +4,7 @@ import { CandidatePosition } from 'src/app/models/candidate-position.model';
 import { Position } from 'src/app/models/position.model';
 import { CandidatePositionService } from 'src/app/service/candidate-position.service';
 import { PositionService } from 'src/app/service/position.service';
+import { UsersService } from 'src/app/service/users.service';
 
 @Component({
   selector: 'app-position-list',
@@ -11,6 +12,9 @@ import { PositionService } from 'src/app/service/position.service';
   styleUrls: ['./position-list.component.css']
 })
 export class PositionListComponent implements OnInit {
+
+  nom_usuario_temp: any;
+  datos_candidato: any;
 
   botones = Array().fill(false);
 
@@ -26,14 +30,15 @@ export class PositionListComponent implements OnInit {
     test_date: new Date(),
     completion_date: new Date(),
     result: 10,
-    id_candidate: 1,
-    id_position: ''
+    candidate: '',
+    position: ''
   };
   submitted = false;
 
   constructor(private positionService: PositionService,
     private candidatePositionService: CandidatePositionService,
-    private router: Router) { }
+    private router: Router,
+    private userService: UsersService) { }
 
   ngOnInit(): void {
     this.retrievePositions();
@@ -84,25 +89,36 @@ export class PositionListComponent implements OnInit {
       );
   }
 
-  saveCandidatePosition(i:any): void {
-    const data = {
-      registry_date: this.candidatePosition.registry_date,
-      test_date: this.candidatePosition.test_date,
-      completion_date: this.candidatePosition.completion_date,
-      result: this.candidatePosition.result,
-      id_candidate: this.candidatePosition.id_candidate,
-      id_position: this.candidatePosition.id_position
-    };
+  saveCandidatePosition(i: any): void {
+    this.nom_usuario_temp = sessionStorage.getItem("username");
 
-    this.candidatePositionService.createCandidatePosition(data).subscribe(
-      response => {
-        console.log(response);
-        this.submitted = true;
+    this.userService.findByUsername(this.nom_usuario_temp).subscribe(
+      data => {
+        this.datos_candidato = data;
+        console.log(this.datos_candidato);
+        const datos = {
+          registry_date: this.candidatePosition.registry_date,
+          test_date: null,
+          completion_date: null,
+          result: this.candidatePosition.result,
+          candidate: this.datos_candidato
+        };
+
+        this.candidatePositionService.createCandidatePosition(datos).subscribe(
+          response => {
+            console.log(response);
+            this.submitted = true;
+          },
+          error => {
+            console.log(error);
+          }
+        );
       },
       error => {
         console.log(error);
       }
-    );
+
+    )
   }
 
   newCandidatePosition(): void {
@@ -112,21 +128,9 @@ export class PositionListComponent implements OnInit {
       test_date: new Date(),
       completion_date: new Date(),
       result: 10,
-      id_candidate: 1,
-      id_position: ''
+      candidate: '',
+      position: ''
     };
   }
-
-  // removePosition(){
-  //   this.positionService.deletePosition(31).subscribe(
-  //     response =>{
-  //       console.log(response),
-  //       this.ngOnInit()
-  //     },
-  //     error => {
-  //       console.log(error)
-  //     }
-  //   )
-  // }
 
 }
