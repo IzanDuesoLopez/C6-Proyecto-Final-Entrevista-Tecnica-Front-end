@@ -21,7 +21,7 @@
               class="bi bi-person-fill user"></i></a>
         </li>
 
-        <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
+        <li class="nav-item"  *ngIf="loginService.isUserLoggedIn() && es_admin">
           <a class="nav-link active loginButton" aria-current="page" routerLink="/create-position" type="button"> <span class=""> Crear puesto</span><i class="bi bi-person-lines-fill"></i></a>
         </li>&nbsp;
         <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
