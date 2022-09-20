@@ -5,9 +5,9 @@
       <div class="card mt-4 mb-4 text-center" style="height: 20rem;">
         <div class="card-body">
           <button type="button" class="botonusuario mb-3"><i class="bi bi-person-circle"></i></button>
-          <h5 class="card-title">Username</h5>
+          <h5 class="card-title">{{usuario.username}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">Full Stack Developer</h6>
-          <p class="card-text">Salou, Spain</p>
+          <p class="card-text">Cataluña, España</p>
           <button class="btn"><i class="bi bi-linkedin"></i> LinkedIn</button>
           <button class="btn"><i class="bi bi-browser-edge"></i> Website</button>
         </div>
@@ -15,41 +15,6 @@
 
     </div>
     <div class="col-8">
-
-      <div class="card mt-4 cartadatos">
-        <div class="card-body">
-          <div class="container">
-            <div class="row">
-              <div class="col izq mt-2">
-                <span class="negrita">Nombre</span>
-                <hr>
-                <span class="negrita">Posiciones</span>
-                <hr>
-                <span class="negrita">Skills</span>
-                <hr>
-              </div>
-              <div class="col izq mt-2">
-                <span class="tam">Izan Dueso López</span>
-                <hr>
-                <span class="tam">3 posiciones</span>
-                <hr>
-                <span class="tam">JAVA, C, C#, .NET</span>
-                <hr>
-              </div>
-              <div class="col izqbotones">
-                <button type="button" class="btn btn-outline-success btn-lg" (click)="getCandidatePositions()"><i
-                    class="bi bi-pencil-fill"></i></button>
-                <br><br>
-                <button type="button" class="btn btn-outline-danger btn-lg"><i
-                    class="bi bi-plus-circle-fill"></i></button>
-                <br><br>
-                <button type="button" class="btn btn-outline-warning btn-lg"><i
-                    class="bi bi-plus-circle-fill"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
 
       <div class="card mt-4 crud" style="height: 35.39rem;">
@@ -59,8 +24,8 @@
           <button type="button" class="btn btn-warning" style="width: 5rem;" (click)="mostrar_posiciones_usuario = false; mostrar_skills = true">Mis skills</button>
         </div>
 
-        <div class="card-body"  *ngIf="mostrar_posiciones_usuario">
-          <div class="container text-center">
+        <div class="card-body">
+          <div class="container text-center" *ngIf="!mostrar_skills">
             <div class="row">
               <table  class="table table-success table-striped">
                 <tr>
@@ -84,9 +49,7 @@
               </table>
             </div>
           </div>
-        </div>
-        <div>
-          <div class="container text-center">
+          <div class="container text-center" *ngIf="mostrar_skills">
             <div class="row">
               <table  class="table table-success table-striped">
                 <tr>
