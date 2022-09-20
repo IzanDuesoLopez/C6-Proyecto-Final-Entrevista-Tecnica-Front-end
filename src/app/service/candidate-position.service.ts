@@ -20,6 +20,10 @@ export class CandidatePositionService {
     return this.http.get<CandidatePosition[]>(baseUrl);
   }
 
+  deleteById(id:any): Observable<any> {
+    return this.http.delete(baseUrl + '/' + id);
+  }
+
   getById(id: any): Observable<CandidatePosition> {
     return this.http.get(baseUrl + '/' + id);
   }

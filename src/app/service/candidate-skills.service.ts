@@ -12,6 +12,10 @@ export class CandidateSkillsService {
 
   constructor(private http: HttpClient) { }
 
+  getAllJson(): Observable<CandidateSkill[]> {
+    return this.http.get<CandidateSkill[]>(baseUrlCandidateSkills, {responseType: 'json'});
+  }
+
   getAll(): Observable<CandidateSkill[]> {
     return this.http.get<CandidateSkill[]>(baseUrlCandidateSkills);
   }
