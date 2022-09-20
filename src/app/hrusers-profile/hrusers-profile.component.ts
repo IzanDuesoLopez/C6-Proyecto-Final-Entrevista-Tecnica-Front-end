@@ -275,7 +275,6 @@ export class HrusersProfileComponent implements OnInit {
     this.showUserToEdit = false
     this.showSkillToEdit = false
     this.showAddSkill = false
-    this.showUserToAvalue = true
     this.userToEdit.username = username
     this.usersService.findByUsername(this.userToEdit.username)
       .subscribe(
@@ -305,14 +304,15 @@ export class HrusersProfileComponent implements OnInit {
                 let auxArr: any = []
                 for (let i = 0; i < this.candidatePositionsFromUser.length; i++) {
                   if(this.userToAvalue.id == this.candidatePositionsFromUser[i].candidate.id){
-                    this.candidatePositionsFromUser[i].registry_date = this.candidatePositionsFromUser[i].registry_date.substring(0,10)
-                    this.candidatePositionsFromUser[i].test_date = this.candidatePositionsFromUser[i].test_date.substring(0,10)
-                    this.candidatePositionsFromUser[i].completion_date = this.candidatePositionsFromUser[i].completion_date.substring(0,10)
+                    this.candidatePositionsFromUser[i].registry_date = (this.candidatePositionsFromUser[i].registry_date != null) || (this.candidatePositionsFromUser[i].registry_date != undefined) ? this.candidatePositionsFromUser[i].registry_date.substring(0,10) : ''
+                    this.candidatePositionsFromUser[i].test_date = (this.candidatePositionsFromUser[i].test_date != null) || (this.candidatePositionsFromUser[i].test_date != undefined) ? this.candidatePositionsFromUser[i].test_date.substring(0,10) : ''
+                    this.candidatePositionsFromUser[i].completion_date = (this.candidatePositionsFromUser[i].completion_date != null) || (this.candidatePositionsFromUser[i].completion_date != undefined) ? this.candidatePositionsFromUser[i].completion_date.substring(0,10) : ''
+                    if(this.candidatePositionsFromUser[i].result == null || this.candidatePositionsFromUser[i].result == undefined){ this.candidatePositionsFromUser[i].result == '' }
                     auxArr.push(this.candidatePositionsFromUser[i])
                   }
                 }
                 this.candidatePositionsFromUser = auxArr
-
+                this.showUserToAvalue = true
               }
             )
         }
