@@ -23,14 +23,14 @@
 
         <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
           <a class="nav-link active loginButton" aria-current="page" routerLink="/create-position" type="button"> <span class=""> Crear puesto</span><i class="bi bi-person-lines-fill"></i></a>
-        </li>
+        </li>&nbsp;
         <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
           <a class="nav-link active loginButton" aria-current="page" routerLink="/positions" type="button"> <span class=""> Posiciones </span><i class="bi bi-person-lines-fill"></i></a>
-        </li>
+        </li>&nbsp;
         <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
           <a class="nav-link active loginButton" aria-current="page" (click)="redirectProfileType()" type="button"> <span class=""> Perfil </span><i
             class="bi bi-person-fill user"></i></a>
-        </li>
+        </li>&nbsp;
         <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
           <a class="nav-link active loginButton" aria-current="page" routerLink="/logout"> <span class=""> Desconectar </span><i
               class="bi bi-person-fill user"></i></a>
