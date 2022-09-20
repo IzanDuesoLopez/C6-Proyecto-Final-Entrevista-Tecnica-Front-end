@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CandidatePosition } from '../models/candidate-position.model';
+import { User } from '../../app/models/user.model';
 import { CandidatePositionService } from '../service/candidate-position.service';
 
 @Component({
@@ -11,10 +12,14 @@ export class CandidatesProfileComponent implements OnInit {
 
   constructor(private candidatePositionService: CandidatePositionService) { }
 
+  search_positions:any;
+
   nom_usuario_temp:any;
   candidatePositions?: CandidatePosition[];
   candidatePositionsFinales?: CandidatePosition[];
   currentPosition: CandidatePosition = {};
+
+  usuario: User = {};
 
   registry_date = new Date()
   test_date = new Date()
@@ -24,31 +29,33 @@ export class CandidatesProfileComponent implements OnInit {
   position = ''
 
   ngOnInit(): void {
+    this.getCandidatePositions();
   }
 
   getCandidatePositions(): void {
-    this.nom_usuario_temp = sessionStorage.getItem("username");
+    let j = 0; // Contador
+
+    this.usuario.username = sessionStorage.getItem("username");
 
     this.candidatePositionService.getAllCandidatesJson().subscribe(
       data => {
         this.candidatePositions = data;
-        console.log(this.candidatePositions);
+        this.candidatePositionsFinales = data;
 
         for (let i = 0; i < this.candidatePositions.length; i++) {
-          this.currentPosition = this.candidatePositions[i];
-          if(this.currentPosition.candidate.name == this.nom_usuario_temp){
-            this.candidatePositionsFinales?.push(this.currentPosition);
-            console.log(this.currentPosition.candidate.name)
+          if(this.usuario.username == this.candidatePositions[i].candidate.username){
+            this.candidatePositionsFinales[j] = this.candidatePositions[i];
+            j++;
           }
         }
+
+        this.candidatePositionsFinales.length = j;
+        console.log(this.candidatePositionsFinales)
       },
       error => {
         console.log(error);
       }
     )
-
-
-
   }
 
 }

@@ -15,50 +15,7 @@
       <div class="card mt-4 mb-4 datosinteres" style="height: 29.4rem;">
         <div class="card-body">
 
-          <div class="container">
-            <div class="row text">
-              <div class="col">
-                <p class="izq skill mt-3 text-center"><i class="bi bi-cpu-fill"></i></p>
-                <p class="izq skill mt-2 text-center"><i class="bi bi-motherboard-fill"></i></p>
-                <p class="izq skill mt-2 text-center"><i class="bi bi-pc-display-horizontal"></i></p>
-                <p class="izq skill mt-2 text-center"><i class="bi bi-pc"></i></p>
-                <p class="izq skill mt-2 text-center"><i class="bi bi-cpu-fill"></i></p>
-                <p class="izq skill mt-2 text-center"><i class="bi bi-motherboard-fill"></i></p>
-                <p class="izq skill mt-2 text-center"><i class="bi bi-pc-display-horizontal"></i></p>
-              </div>
-              <div class="col-10">
-                <p class="izq skill mt-3">Skill_1</p>
-                <div class="progress mb-3">
-                  <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="izq skill">Skill_2</p>
-                <div class="progress mb-3">
-                  <div class="progress-bar " role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="izq skill">Skill_3</p>
-                <div class="progress mb-3">
-                  <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="izq skill">Skill_4</p>
-                <div class="progress mb-3">
-                  <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="izq skill">Skill_5</p>
-                <div class="progress mb-3">
-                  <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="izq skill">Skill_6</p>
-                <div class="progress mb-3">
-                  <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="izq skill">Skill_7</p>
-                <div class="progress mb-3">
-                  <div class="progress-bar " role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
 
-            </div>
-          </div>
 
         </div>
       </div>
@@ -69,7 +26,7 @@
 
       <div class="card mt-4 cartadatos">
         <div class="card-body">
-          <div class="container" >
+          <div class="container">
             <div class="row">
               <div class="col izq mt-2">
                 <span class="negrita">Nombre</span>
@@ -88,11 +45,14 @@
                 <hr>
               </div>
               <div class="col izqbotones">
-                <button type="button" class="btn btn-outline-success btn-lg" (click)="getCandidatePositions()"><i class="bi bi-pencil-fill"></i></button>
+                <button type="button" class="btn btn-outline-success btn-lg" (click)="getCandidatePositions()"><i
+                    class="bi bi-pencil-fill"></i></button>
                 <br><br>
-                <button type="button" class="btn btn-outline-danger btn-lg"><i class="bi bi-plus-circle-fill"></i></button>
+                <button type="button" class="btn btn-outline-danger btn-lg"><i
+                    class="bi bi-plus-circle-fill"></i></button>
                 <br><br>
-                <button type="button" class="btn btn-outline-warning btn-lg"><i class="bi bi-plus-circle-fill"></i></button>
+                <button type="button" class="btn btn-outline-warning btn-lg"><i
+                    class="bi bi-plus-circle-fill"></i></button>
               </div>
             </div>
           </div>
@@ -103,52 +63,50 @@
         <div class="card-body">
           <div class="container text-center">
             <div class="row">
-              <div class="col">
-                <div class="izq mb-1">Mostrar: <select class="select">
-                    <option selected>5</option>
-                    <option value="1">10</option>
-                    <option value="2">15</option>
-                    <option value="3">20</option>
-                  </select> registros
-                </div>
-                <div class="text-end subir mb-1">
-                  <input type="text" placeholder="Buscar usuario" aria-label="Search">
-                </div>
-
-                <table class="table fondotabla">
-                  <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellidos</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Rol</th>
-                    <th scope="col">CRUD</th>
-                  </tr>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Izan</td>
-                    <td>Dueso López</td>
-                    <td>Izancartio</td>
-                    <td>ADMIN</td>
-                    <td>
-                      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                        <button type="button" class="botonvisualizar"><i class="bi bi-eye-fill"></i></button>
-                        <button type="button" class="botoneditar"><i class="bi bi-pencil-fill"></i></button>
-                        <button type="button" class="botoneliminar"><i class="bi bi-person-x-fill"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-                <div style="text-align: left;">Mostrando del 1 al 5 en un total de 5 registros
-                  <br><button type="button" class="botonvisualizar mt-2">Añadir usuario</button>
-                </div>
-
-                <div class="subirindice" style="text-align: right;">
-                  <button type="button" class="botonvisualizar mt-2">Anterior</button>
-                  <button type="button" class="botonvisualizar mt-2">1</button>
-                  <button type="button" class="botonvisualizar mt-2">Siguiente</button>
-                </div>
+              <div class="text-end subir mb-2">
+                <input type="text" placeholder="Buscar posición" aria-label="Search" [(ngModel)]="search_positions">
               </div>
+
+
+              <table  class="table table-success table-striped">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellidos</th>
+                  <th scope="col">Username</th>
+                  <th scope="col">Rol</th>
+                  <th scope="col">CRUD</th>
+                </tr>
+                <ng-container class="table table-success table-striped" *ngFor="let u of candidatePositionsFinales">
+                  <tr *ngIf="u.position !== null">
+                    <th scope="row">{{ u.id }}</th>
+                    <td>{{ u.position.title }}</td>
+                    <td>{{ u.position.description }}</td>
+                    <td>{{ u.result }}</td>
+                    <td>{{ u.test_date }}</td>
+                    <td><button type="button" class="botoneliminar"><i class="bi bi-person-x-fill"></i></button></td>
+                  </tr>
+                </ng-container>
+              </table>
+
+              <!-- <ng-container *ngFor="let u of users">
+                <tr *ngIf="u.id == searchUsers || (u.name | lowercase).includes((searchUsers | lowercase)) || (u.surname | lowercase).includes((searchUsers | lowercase)) || (u.username | lowercase).includes((searchUsers | lowercase)) || (u.roles[0].name | lowercase).includes((searchUsers | lowercase))">
+                  <th scope="row">{{ u.id }}</th>
+                  <td>{{ u.name }}</td>
+                  <td>{{ u.surname }}</td>
+                  <td>{{ u.username }}</td>
+                  <td>{{ u.roles[0].name }}</td>
+                  <td>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                      <button type="button" class="botonvisualizar" (click)="showsUserToAvalue( u.username )"><i class="bi bi-eye-fill"></i></button>
+                      <button type="button" class="botoneditar" (click)="showsUserToEdit( u.username )"><i class="bi bi-pencil-fill"></i></button>
+                      <button type="button" class="botoneliminar" (click)="deleteUser( u.id )"><i
+                          class="bi bi-person-x-fill"></i></button>
+                    </div>
+                  </td>
+                </tr>
+              </ng-container> -->
+
             </div>
           </div>
         </div>
