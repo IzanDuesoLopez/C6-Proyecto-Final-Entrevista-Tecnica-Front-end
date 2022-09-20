@@ -15,6 +15,11 @@ import { SearchPageComponent } from './search-page/search-page.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
     path: 'logout',
     component: LogoutComponent
   },
@@ -54,8 +59,14 @@ const routes: Routes = [
     path:'home',
     component:LandingPageComponent
   },
-  {path:'positions', component:PositionListComponent},
-  {path:'positions/:title', component:PositionDetailsComponent}
+  {
+    path:'positions',
+    component:PositionListComponent
+  },
+  {
+    path:'positions/:title',
+    component:PositionDetailsComponent
+  }
 ];
 
 @NgModule({
