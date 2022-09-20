@@ -30,6 +30,8 @@ export class NavbarComponent implements OnInit {
         this.user = result;
         if(this.user.roles[0].name=="ADMIN"){
           this.es_admin = true;
+        }else{
+          this.es_admin = false;
         }
       },
       error => {
