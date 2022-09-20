@@ -129,6 +129,7 @@ export class HrusersProfileComponent implements OnInit {
       .subscribe(
         result => {
           this.users = result;
+          this.showUsers()
         }
       )
 

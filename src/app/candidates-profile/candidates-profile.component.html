@@ -34,7 +34,7 @@
                   <th scope="col">Vacante</th>
                   <th scope="col">Calificación</th>
                   <th scope="col">Fecha</th>
-                  <th scope="col">Eliminar posición</th>
+                  <!-- <th scope="col">Eliminar posición</th> -->
                 </tr>
                 <ng-container *ngFor="let u of candidatePositionsFinales">
                   <tr *ngIf="u.position !== null">
@@ -43,7 +43,7 @@
                     <td>{{ u.position.description }}</td>
                     <td>{{ u.result }}</td>
                     <td>{{ u.test_date }}</td>
-                    <td><button type="button" class="botoneliminar" (click)="deletePorId(u.id)"><i class="bi bi-person-x-fill"></i></button></td>
+                    <!-- <td><button type="button" class="botoneliminar" (click)="deletePorId(u.id)"><i class="bi bi-person-x-fill"></i></button></td> -->
                   </tr>
                 </ng-container>
               </table>
