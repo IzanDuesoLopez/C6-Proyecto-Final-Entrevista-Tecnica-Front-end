@@ -39,6 +39,7 @@ export class CandidatesProfileComponent implements OnInit {
 
   id_temp: any;
 
+  // Comprobaciones
   mostrar_posiciones_usuario: any;
   mostrar_skills:any;
 
