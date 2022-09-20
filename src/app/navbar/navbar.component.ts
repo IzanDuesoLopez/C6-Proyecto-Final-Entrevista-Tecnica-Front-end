@@ -48,6 +48,9 @@ export class NavbarComponent implements OnInit {
         if(this.user.roles[0].name=="ADMIN"){
           this.router.navigate(['/profile-admin'])
         }
+        if(this.user.roles[0].name=="USER"){
+          this.router.navigate(['/profile'])
+        }
       },
       error => {
         console.log(error)
