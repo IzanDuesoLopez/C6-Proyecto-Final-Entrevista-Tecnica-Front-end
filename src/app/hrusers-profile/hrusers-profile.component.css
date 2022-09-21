@@ -175,3 +175,12 @@ td {
 .colorLightGray{
   color: rgb(165, 165, 165);
 }
+
+@media screen and (max-width: 650px) {
+  .ofscroll{
+    overflow: scroll;
+  }
+  .search{
+    width: 140px;
+  }
+}
