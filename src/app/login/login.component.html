@@ -4,7 +4,7 @@
       <div id="login-column" class="col-md-6">
         <div id="login-box" class="col-md-12">
           <form id="login-form" class="form" name="myForm" method="post">
-            <h3 class="text-center textInfo">Iniciar sesión</h3>
+            <h3 class="text-center textInfo">Iniciar sesión <i class="bi bi-box-arrow-in-right"></i></h3>
             <div class="form-group mt-3">
               <label for="username" class="textInfo">Nombre de usuario:</label><span class="text-danger" *ngIf="errorUsername"> * {{ errorUsername }}</span><br>
               <input type="text" name="username" id="username" class="form-control" [(ngModel)]="username">
@@ -19,7 +19,7 @@
                 <div class="form-group">
                   <label for="remember-me" class="textInfo"><span>Recuerdame</span> <span><input id="remember-me"
                         name="remember-me" type="checkbox"></span></label><br>
-                  <button class="btn btn-info btn-md btn-custom mt-1" (click)="checkLogin()">Enviar</button>
+                  <button class="btn btn-info btn-md btn-custom mt-1" (click)="checkLogin()">Enviar <i class="bi bi-arrow-bar-up"></i></button>
                 </div>
               </div>
               <div class="col-6">

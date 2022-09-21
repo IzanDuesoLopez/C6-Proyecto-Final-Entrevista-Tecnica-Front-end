@@ -4,28 +4,28 @@
       <div id="register-column" class="col-md-6">
         <div id="register-box" class="col-md-12">
           <form id="register-form" class="form" action="">
-            <h3 class="text-center textInfo">Registrarse</h3>
+            <h3 class="text-center textInfo">Registrarse <i class="bi bi-arrow-up-circle-fill"></i></h3>
             <div class="form-group mt-2">
-              <label for="name" class="textInfo">Nombre:</label><br />
+              <label for="name" class="textInfo">Nombre: *</label><br />
               <input type="text" name="name" id="name" class="form-control" [(ngModel)]="name"/>
             </div>
             <div class="form-group mt-2">
-              <label for="surname" class="textInfo">Apellido:</label><br />
+              <label for="surname" class="textInfo">Apellido: *</label><br />
               <input type="text" name="surname" id="surname" class="form-control" [(ngModel)]="surname"/>
             </div>
             <div class="form-group mt-2">
-              <label for="username" class="textInfo">Nombre de usuario:</label><br />
+              <label for="username" class="textInfo">Nombre de usuario: *</label><br />
               <input type="text" name="username" id="username" class="form-control" [(ngModel)]="username"/>
             </div>
             <div class="form-group mt-2">
-              <label for="password" class="textInfo">Contraseña:</label><br />
+              <label for="password" class="textInfo">Contraseña: *</label><br />
               <input type="password" name="password" id="password" class="form-control" [(ngModel)]="password"/>
             </div>
             <div class="form-group mt-2">
-              <label for="confirmPassword" class="textInfo">Confirmar contraseña:</label><br />
+              <label for="confirmPassword" class="textInfo">Confirmar contraseña: *</label><br />
               <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" />
             </div>
-            <button class="btn btn-info btn-md btn-custom mt-1" (click)="registerUser()">Enviar</button>
+            <button class="btn btn-info btn-md btn-custom mt-4" (click)="registerUser()">Enviar <i class="bi bi-arrow-bar-up"></i></button>
           </form>
         </div>
       </div>
