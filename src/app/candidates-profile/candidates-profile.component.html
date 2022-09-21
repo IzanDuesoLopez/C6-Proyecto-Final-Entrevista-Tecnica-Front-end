@@ -26,6 +26,10 @@
         </div>
 
         <div class="card-body">
+          <div class="text-end subir mb-2">
+            <input type="text" class="search mt-4" placeholder="Buscar..." aria-label="Search" [(ngModel)]="search_positions">
+          </div>
+
           <div class="container text-center" *ngIf="!mostrar_skills">
             <div class="row ofscroll">
               <table  class="table table-success table-striped">
@@ -38,7 +42,7 @@
                   <!-- <th scope="col">Eliminar posición</th> -->
                 </tr>
                 <ng-container *ngFor="let u of candidatePositionsFinales">
-                  <tr *ngIf="u.position !== null">
+                  <tr *ngIf="u.id == search_positions || (u.position.title | lowercase).includes((search_positions | lowercase)) || (u.position.description | lowercase).includes((search_positions | lowercase))">
                     <th scope="row">{{ u.id }}</th>
                     <td>{{ u.position.title }}</td>
                     <td>{{ u.position.description }}</td>
@@ -50,6 +54,7 @@
               </table>
             </div>
           </div>
+
           <div class="container text-center" *ngIf="mostrar_skills">
             <div class="row ofscroll">
               <table  class="table table-success table-striped">
@@ -60,7 +65,7 @@
                   <th scope="col">Valor</th>
                 </tr>
                 <ng-container *ngFor="let s of skillCandidatesFinales">
-                  <tr>
+                  <tr *ngIf="s.id == search_positions || (s.skill?.name | lowercase).includes((search_positions | lowercase))">
                     <th scope="row">{{ s.id }}</th>
                     <td>{{ s.skill?.name }}</td>
                     <td>{{ s.notes }}</td>

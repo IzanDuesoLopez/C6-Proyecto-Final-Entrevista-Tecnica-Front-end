@@ -16,8 +16,6 @@ export class CandidatesProfileComponent implements OnInit {
   constructor(private candidatePositionService: CandidatePositionService,
     private candidateSkillService: CandidateSkillsService) { }
 
-  search_positions: any;
-
   skills_completas?: Skill[];
   skillCandidates?: CandidateSkill[];
   skillCandidatesFinales?: CandidateSkill[];
@@ -38,6 +36,8 @@ export class CandidatesProfileComponent implements OnInit {
   position = ''
 
   id_temp: any;
+
+  search_positions = '';
 
   // Comprobaciones
   mostrar_posiciones_usuario: any;
