@@ -37,28 +37,31 @@ export class LoginComponent implements OnInit {
     this.username = this.username.trim();
     this.password = this.password.trim();
 
-    if(this.username == ""){
+    if (this.username == "") {
       this.errorUsername = "El nombre de usuario es obligatorio.";
     }
-    if(this.password == ""){
+    if (this.password == "") {
       this.errorPassword = "La contraseña es obligatoria.";
     }
 
-    if(this.errorUsername == "" && this.errorPassword == "" ){
+    if (this.errorUsername == "" && this.errorPassword == "") {
       this.cargando = true;
       (this.loginservice.authenticate(this.username, this.password).subscribe(
-          data => {
-            this.router.navigate(['/home'])
-            this.invalidLogin = false
-            this.cargando = false;
-          },
-          error => {
-            this.invalidLogin = true
-            console.log(error.message)
-            this.error = "Datos de inicio de sesión incorrectos.";
-            this.cargando = false;
-          }
-        )
+        data => {
+          this.router.navigate(['/home'])
+            .then(() => {
+              window.location.reload();
+            });
+          this.invalidLogin = false
+          this.cargando = false;
+        },
+        error => {
+          this.invalidLogin = true
+          console.log(error.message)
+          this.error = "Datos de inicio de sesión incorrectos.";
+          this.cargando = false;
+        }
+      )
       );
 
     }
