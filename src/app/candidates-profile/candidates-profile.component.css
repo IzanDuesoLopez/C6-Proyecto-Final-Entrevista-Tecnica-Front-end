@@ -138,3 +138,9 @@ th {
 td {
   border: 1px solid blue;
 }
+
+@media screen and (max-width: 650px) {
+  .ofscroll{
+    overflow: scroll;
+  }
+}

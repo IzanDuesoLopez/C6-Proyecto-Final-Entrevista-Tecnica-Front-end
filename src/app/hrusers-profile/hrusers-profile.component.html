@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-4">
+    <div class="col-md-4 col-ms-12">
 
       <div class="card mt-4 mb-4 text-center" style="height: 20rem;">
         <div class="card-body">
@@ -16,7 +16,7 @@
 
     </div>
 
-    <div class="col-8">
+    <div class="col-md-8 col-ms-12 mb-3">
       <div class="card mt-4 mb-4">
         <div class="card-body">
           <div class="container text-center">
@@ -25,13 +25,16 @@
             <button type="button" class="btn btn-primary mt-2" (click)="showSkills()">Habilidades</button>
 
             <div class="row" *ngIf="showUser">
-              <div class="col">
+              <div class="col-12">
                 <div class="izq mb-1">
                   <button type="button" class="botonvisualizar mt-2" (click)="showAddUsers()">Añadir usuario</button>
                 </div>
                 <div class="text-end subir mb-2">
-                  <input type="text" placeholder="Buscar usuario" aria-label="Search" [(ngModel)]="searchUsers">
+                  <input type="text" class="search" placeholder="Buscar usuario" aria-label="Search" [(ngModel)]="searchUsers">
                 </div>
+              </div>
+              <div class="col ofscroll">
+
 
                 <table class="table fondotabla">
                   <tr>
@@ -120,7 +123,7 @@
               </div>
             </div>
 
-            <div class="row" *ngIf="showUserToAvalue">
+            <div class="row ofscroll" *ngIf="showUserToAvalue">
               <div class="col">
 
                 <table class="table fondotabla mt-3">
@@ -161,13 +164,13 @@
                 <hr>
 
                 <div class="row">
-                  <div class="col">
+                  <div class="col ofscroll">
                     <div class="izq mb-1">
                       <button type="button" class="botonvisualizar mt-2" (click)="showAddSkills()">Añadir
                         habilidad</button>
                     </div>
                     <div class="text-end subir mb-2">
-                      <input type="text" placeholder="Buscar habilidad" aria-label="Search" [(ngModel)]="searchSkills">
+                      <input type="text" class="search" placeholder="Buscar habilidad" aria-label="Search" [(ngModel)]="searchSkills">
                     </div>
 
                     <table class="table fondotabla">
@@ -196,10 +199,10 @@
 
               <ng-container *ngIf="show_exams">
                 <div class="row">
-                  <div class="col">
+                  <div class="col ofscroll">
 
                     <div class="text-end subir mb-2">
-                      <input type="text" placeholder="Buscar posición" aria-label="Search" [(ngModel)]="searchExams">
+                      <input type="text" class="search" placeholder="Buscar posición" aria-label="Search" [(ngModel)]="searchExams">
                     </div>
 
                     <table class="table fondotabla">
@@ -238,12 +241,12 @@
             </div>
 
             <div class="row" *ngIf="showSkill">
-              <div class="col">
+              <div class="col ofscroll">
                 <div class="izq mb-1">
                   <button type="button" class="botonvisualizar mt-2" (click)="showAddSkills()">Añadir habilidad</button>
                 </div>
                 <div class="text-end subir mb-2">
-                  <input type="text" placeholder="Buscar habilidad" aria-label="Search" [(ngModel)]="searchSkills">
+                  <input type="text" class="search" placeholder="Buscar habilidad" aria-label="Search" [(ngModel)]="searchSkills">
                 </div>
 
                 <table class="table fondotabla">

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-4">
+    <div class="col-ms-12 col-md-4 col-12">
 
       <div class="card mt-4 mb-4 text-center" style="height: 20rem;">
         <div class="card-body">
@@ -14,10 +14,11 @@
       </div>
 
     </div>
-    <div class="col-8 mb-3">
+
+    <div class="col-md-8 col-ms-12 mb-3">
 
 
-      <div class="card mt-4 crud" style="height: 35.39rem;">
+      <div class="card mt-4 crud">
 
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
           <button type="button" class="btn btn-danger" style="width: 5rem;" (click)="mostrar_posiciones_usuario = true; mostrar_skills = false">Mis posiciones</button>
@@ -26,7 +27,7 @@
 
         <div class="card-body">
           <div class="container text-center" *ngIf="!mostrar_skills">
-            <div class="row">
+            <div class="row ofscroll">
               <table  class="table table-success table-striped">
                 <tr>
                   <th scope="col">ID</th>
@@ -50,7 +51,7 @@
             </div>
           </div>
           <div class="container text-center" *ngIf="mostrar_skills">
-            <div class="row">
+            <div class="row ofscroll">
               <table  class="table table-success table-striped">
                 <tr>
                   <th scope="col">ID</th>
