@@ -21,13 +21,13 @@
         <div class="card-body">
           <div class="container text-center">
 
-            <button type="button" class="btn btn-primary mt-2" (click)="showUsers()">Usuarios</button>&nbsp;
-            <button type="button" class="btn btn-primary mt-2" (click)="showSkills()">Habilidades</button>
+            <button type="button" class="btn btn-primary mt-2" (click)="showUsers()">Usuarios <i class="bi bi-people-fill"></i></button>&nbsp;
+            <button type="button" class="btn btn-primary mt-2" (click)="showSkills()">Habilidades <i class="bi bi-lightning-charge-fill"></i></button>
 
             <div class="row" *ngIf="showUser">
               <div class="col-12">
                 <div class="izq mb-1">
-                  <button type="button" class="botonvisualizar mt-2" (click)="showAddUsers()">Añadir usuario</button>
+                  <button type="button" class="botonvisualizar mt-2" (click)="showAddUsers()">Añadir usuario <i class="bi bi-person-plus-fill"></i></button>
                 </div>
                 <div class="text-end subir mb-2">
                   <input type="text" class="search" placeholder="Buscar usuario" aria-label="Search" [(ngModel)]="searchUsers">
@@ -116,7 +116,7 @@
                     <input type="password" class="form-control" id="password" required [(ngModel)]="userToAddPassword">
                   </div>
 
-                  <button class="btn btn-success mt-3" (click)="addUser()">Añadir</button>
+                  <button class="btn btn-success mt-3" (click)="addUser()">Añadir <i class="bi bi-plus-circle-fill"></i></button>
 
                   <div *ngIf="submitted" class="mt-1">Añadido correctamente</div>
                 </div>
@@ -146,9 +146,9 @@
 
               <div class="text-start mb-3">
                 <button type="button" class="botonvisualizar mt-2" (click)="show_skills = true; show_exams = false">Set
-                  de habilidades</button>&nbsp;
+                  de habilidades <i class="bi bi-archive-fill"></i></button>&nbsp;
                 <button type="button" class="botonvisualizar mt-2"
-                  (click)="show_exams = true; show_skills = false">Pruebas técnicas</button>
+                  (click)="show_exams = true; show_skills = false">Pruebas técnicas <i class="bi bi-file-earmark-text-fill"></i></button>
               </div>
 
               <ng-container *ngIf="show_skills">
@@ -167,7 +167,7 @@
                   <div class="col ofscroll">
                     <div class="izq mb-1">
                       <button type="button" class="botonvisualizar mt-2" (click)="showAddSkills()">Añadir
-                        habilidad</button>
+                        habilidad <i class="bi bi-plus-circle-fill"></i></button>
                     </div>
                     <div class="text-end subir mb-2">
                       <input type="text" class="search" placeholder="Buscar habilidad" aria-label="Search" [(ngModel)]="searchSkills">
@@ -243,7 +243,7 @@
             <div class="row" *ngIf="showSkill">
               <div class="col ofscroll">
                 <div class="izq mb-1">
-                  <button type="button" class="botonvisualizar mt-2" (click)="showAddSkills()">Añadir habilidad</button>
+                  <button type="button" class="botonvisualizar mt-2" (click)="showAddSkills()">Añadir habilidad <i class="bi bi-plus-circle-fill"></i></button>
                 </div>
                 <div class="text-end subir mb-2">
                   <input type="text" class="search" placeholder="Buscar habilidad" aria-label="Search" [(ngModel)]="searchSkills">
@@ -296,7 +296,7 @@
                     <input type="text" class="form-control" id="name" required [(ngModel)]="skillToAdd.name">
                   </div>
 
-                  <button class="btn btn-success mt-3" (click)="addSkill()">Añadir</button>
+                  <button class="btn btn-success mt-3" (click)="addSkill()">Añadir <i class="bi bi-plus-circle-fill"></i></button>
 
                   <div *ngIf="submitted" class="mt-1">Añadido correctamente</div>
                 </div>
