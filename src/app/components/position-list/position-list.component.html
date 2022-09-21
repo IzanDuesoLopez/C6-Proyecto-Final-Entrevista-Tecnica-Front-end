@@ -2,18 +2,23 @@
   <div class="row">
     <div class="col-12">
       <div>
-        <input type="text" class="form-control mt-4" placeholder="Buscar por titulo o descripción"
+        <input type="text" class="form-control mt-4" placeholder="Buscar por titulo o descripción..."
           [(ngModel)]="search_title" />
       </div>
-      <h1 class="mt-4">Positions list</h1>
+
+      <div class="contenedor_titulo text-center">
+        <h1 class="mt-4 titulo_posiciones">Positions list</h1>
+      </div>
+
       <ng-container *ngFor="let pos of positions; let j = index;" [class.active]="j == currentIndex">
         <div class="card mb-4 posicionar" style="width: 18rem;"
           *ngIf="pos.title == search_title || (pos.title | lowercase).includes((search_title | lowercase)) || (pos.description | lowercase).includes((search_title | lowercase))">
+          <img src="{{imagenesPosiciones[0]}}" class="card-img-top tam_img" alt="...">
           <div class="card-body">
             <h5 class="card-title mt-3">{{pos.title}}</h5>
             <p class="card-text">{{pos.description}}</p>
             <button id=i class="btn btn-success mb-3" type="button" [disabled]="botones[j]"
-              (click)="botones[j]=true; saveCandidatePosition(pos); setActivePosition(pos, j);">Apuntarse</button>
+              (click)="botones[j]=true; saveCandidatePosition(pos); setActivePosition(pos, j);">Apuntarse <i class="bi bi-plus-circle"></i></button>
           </div>
         </div>
       </ng-container>

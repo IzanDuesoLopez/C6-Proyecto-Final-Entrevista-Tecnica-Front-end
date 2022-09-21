@@ -6,7 +6,21 @@ li:hover{
   width: 100%;
   display: inline-block;
   margin: 1rem !important;
+  box-shadow: 0px 0px 5px black;
+  border: 3px solid rgb(0, 159, 180);
+  border-end-end-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
+
+.titulo_posiciones{
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 3rem;
+}
+
 
 
 

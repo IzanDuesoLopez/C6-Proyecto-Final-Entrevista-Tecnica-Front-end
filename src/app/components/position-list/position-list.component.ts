@@ -13,6 +13,8 @@ import { UsersService } from 'src/app/service/users.service';
 })
 export class PositionListComponent implements OnInit {
 
+  imagenesPosiciones: any[] = ['../../../assets/img/Posiciones.png', '../../../assets/img/Logo.png']
+
   nom_usuario_temp: any;
   datos_candidato: any;
   datos_posicion: any;
