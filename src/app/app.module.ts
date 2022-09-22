@@ -22,6 +22,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { PositionListComponent } from './components/position-list/position-list.component';
 import { PositionDetailsComponent } from './components/position-details/position-details.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatProgressBarModule
   ],
   providers: [
+    DatePipe,
     {
       provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true
     }

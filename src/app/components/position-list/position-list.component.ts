@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CandidatePosition } from 'src/app/models/candidate-position.model';
@@ -32,8 +33,8 @@ export class PositionListComponent implements OnInit {
 
   candidatePosition: CandidatePosition = {
     registry_date: new Date(),
-    test_date: new Date(),
-    completion_date: new Date(),
+    test_date: null,
+    completion_date: null,
     result: '',
     candidate: '',
     position: ''
@@ -50,12 +51,16 @@ export class PositionListComponent implements OnInit {
   constructor(private positionService: PositionService,
     private candidatePositionService: CandidatePositionService,
     private router: Router,
-    private userService: UsersService) { }
+    private userService: UsersService,
+    private datePipe: DatePipe
+  ) { }
 
   /**
    * Function that runs when the component instanciates
    */
   ngOnInit(): void {
+    console.log("----------------------------------")
+    console.log(this.candidatePosition.registry_date)
     this.retrievePositions();
   }
 
@@ -133,7 +138,9 @@ export class PositionListComponent implements OnInit {
           datosposition => {
             this.datos_posicion = datosposition;
             this.posicion_temp = this.datos_posicion[0];
-            console.log(this.posicion_temp)
+            this.candidatePosition.registry_date = this.datePipe.transform(this.candidatePosition.registry_date, 'yyyy-MM-dd');
+            console.log("================================")
+            console.log(this.candidatePosition.registry_date)
             const datos = {
               registry_date: this.candidatePosition.registry_date,
               test_date: null,
@@ -142,7 +149,8 @@ export class PositionListComponent implements OnInit {
               candidate: this.datos_candidato,
               position: this.posicion_temp
             };
-
+            console.log("================================")
+            console.log(datos.registry_date)
             this.candidatePositionService.createCandidatePosition(datos).subscribe(
               response => {
                 console.log(response);

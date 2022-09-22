@@ -335,9 +335,9 @@ export class HrusersProfileComponent implements OnInit {
                 let auxArr: any = []
                 for (let i = 0; i < this.candidatePositionsFromUser.length; i++) {
                   if(this.userToAvalue.id == this.candidatePositionsFromUser[i].candidate.id){
-                    this.candidatePositionsFromUser[i].registry_date = (this.candidatePositionsFromUser[i].registry_date != null) || (this.candidatePositionsFromUser[i].registry_date != undefined) ? this.candidatePositionsFromUser[i].registry_date : ''
-                    this.candidatePositionsFromUser[i].test_date = (this.candidatePositionsFromUser[i].test_date != null) || (this.candidatePositionsFromUser[i].test_date != undefined) ? this.candidatePositionsFromUser[i].test_date : ''
-                    this.candidatePositionsFromUser[i].completion_date = (this.candidatePositionsFromUser[i].completion_date != null) || (this.candidatePositionsFromUser[i].completion_date != undefined) ? this.candidatePositionsFromUser[i].completion_date : ''
+                    this.candidatePositionsFromUser[i].registry_date = (this.candidatePositionsFromUser[i].registry_date != null) || (this.candidatePositionsFromUser[i].registry_date != undefined) ? this.candidatePositionsFromUser[i].registry_date.substring(0, 10) + ' ' + this.candidatePositionsFromUser[i].registry_date.substring(11, 16) : ''
+                    this.candidatePositionsFromUser[i].test_date = (this.candidatePositionsFromUser[i].test_date != null) || (this.candidatePositionsFromUser[i].test_date != undefined) ? this.candidatePositionsFromUser[i].test_date.substring(0, 10) + ' ' + this.candidatePositionsFromUser[i].test_date.substring(11, 16) : ''
+                    this.candidatePositionsFromUser[i].completion_date = (this.candidatePositionsFromUser[i].completion_date != null) || (this.candidatePositionsFromUser[i].completion_date != undefined) ? this.candidatePositionsFromUser[i].completion_date.substring(0, 10) + ' ' + this.candidatePositionsFromUser[i].completion_date.substring(11, 16) : ''
                     if(this.candidatePositionsFromUser[i].result == null || this.candidatePositionsFromUser[i].result == undefined){ this.candidatePositionsFromUser[i].result == '' }
                     auxArr.push(this.candidatePositionsFromUser[i])
                   }
@@ -412,7 +412,9 @@ export class HrusersProfileComponent implements OnInit {
    * @param cp
    */
   editTestDate(cp:CandidatePosition){
-    cp.test_date = prompt("En que fecha quieres realizar esta prueba técnica?", "YYYY-MM-DD")
+    let auxDate = new Date()
+    let adminDate = prompt("En que fecha quieres realizar esta prueba técnica?", "yyyy-MM-dd hh:mm")
+    cp.test_date
     this.candidatePositionService.updateCandidatePosition(cp.id, cp)
     .subscribe(
       response => (

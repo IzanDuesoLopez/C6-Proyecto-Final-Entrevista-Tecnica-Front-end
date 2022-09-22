@@ -5,6 +5,7 @@ import { CandidatePositionService } from '../service/candidate-position.service'
 import { CandidateSkill } from '../models/candidate-skill.model';
 import { CandidateSkillsService } from '../service/candidate-skills.service';
 import { Skill } from '../models/skill.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-candidates-profile',
@@ -18,8 +19,11 @@ export class CandidatesProfileComponent implements OnInit {
    * @param candidatePositionService
    * @param candidateSkillService
    */
-  constructor(private candidatePositionService: CandidatePositionService,
-    private candidateSkillService: CandidateSkillsService) { }
+  constructor(
+    private candidatePositionService: CandidatePositionService,
+    private candidateSkillService: CandidateSkillsService,
+    private datePipe: DatePipe
+  ) { }
 
   // Class variables
   skills_completas?: Skill[];
@@ -105,6 +109,7 @@ export class CandidatesProfileComponent implements OnInit {
         for (let i = 0; i < this.candidatePositions.length; i++) {
           if (this.usuario.username == this.candidatePositions[i].candidate.username) {
             this.candidatePositionsFinales[j] = this.candidatePositions[i];
+            this.candidatePositionsFinales[j].test_date = this.candidatePositionsFinales[j].test_date.substring(0, 10) + ' ' + this.candidatePositionsFinales[j].test_date.substring(11, 16)
             j++;
           }
         }
