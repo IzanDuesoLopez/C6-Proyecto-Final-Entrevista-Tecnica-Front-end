@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Checks the veracity of the credentials introduced, if not correct, show the errors to the user, if correct, logs in the user and redirects to the home page.
+   */
   checkLogin() {
 
     this.errorUsername = ''

@@ -100,7 +100,14 @@ export class HrusersProfileComponent implements OnInit {
   // Activates message to inform if there is a correct update to the request the user did.
   submitted = false
 
-  // Default constructor.
+  /**
+   * Default constructor.
+   * @param router
+   * @param usersService
+   * @param skillsService
+   * @param candidateSkillsService
+   * @param candidatePositionService
+   */
   constructor(
     private router: Router,
     private usersService: UsersService,
@@ -109,6 +116,9 @@ export class HrusersProfileComponent implements OnInit {
     private candidatePositionService: CandidatePositionService
   ) { }
 
+  /**
+   * Loads when component its called.
+   */
   ngOnInit(): void {
 
     // Gets info of the logged admin user.
@@ -146,7 +156,9 @@ export class HrusersProfileComponent implements OnInit {
   //             Functions that shows main functionalities of the 'ADMIN' users.
   ///////////////////////////////////////////////////////////////////////////////////////////////
 
-  // Users.
+  /**
+   * Users.
+   */
   showUsers() {
     this.showAddUser = false; this.showUserToAvalue = false
     this.submitted = false
@@ -157,7 +169,9 @@ export class HrusersProfileComponent implements OnInit {
     this.showAddSkill = false
   }
 
-  // Skills.
+  /**
+   * Skills.
+   */
   showSkills() {
     this.showAddUser = false; this.showUserToAvalue = false
     this.submitted = false
@@ -175,7 +189,9 @@ export class HrusersProfileComponent implements OnInit {
 
   // Insert user.
 
-  // Shows panel to insert a new user.
+  /**
+   * Shows panel to insert a new user.
+   */
   showAddUsers() {
     this.showAddUser = true; this.showUserToAvalue = false
     this.submitted = false
@@ -186,7 +202,9 @@ export class HrusersProfileComponent implements OnInit {
     this.showAddSkill = false
   }
 
-  // Registers new user.
+  /**
+   * Registers new user.
+   */
   addUser() {
     this.submitted = false
     this.usersService.add(this.userToAdd.name, this.userToAdd.surname, this.userToAdd.username, this.userToAddPassword)
@@ -204,7 +222,10 @@ export class HrusersProfileComponent implements OnInit {
 
   // Update user.
 
-  // Shows panel to edit the selected user with its information.
+  /**
+   * Shows panel to edit the selected user with its information.
+   * @param username
+   */
   showsUserToEdit(username: any) {
     this.showAddUser = false; this.showUserToAvalue = false
     this.submitted = false
@@ -222,7 +243,10 @@ export class HrusersProfileComponent implements OnInit {
       )
   }
 
-  // Saves the new data and updates the user.
+  /**
+   * Saves the new data and updates the user.
+   * @param id
+   */
   updateUser(id: any) {
     this.submitted = false
     this.showUserToEdit = true
@@ -246,7 +270,10 @@ export class HrusersProfileComponent implements OnInit {
       );
   }
 
-  // Delete user.
+  /**
+   * Delete user.
+   * @param id
+   */
   deleteUser(id: any) {
     if (confirm('Seguro que quieres eliminar este usuario con la ID: ' + id + '?')) {
       this.usersService.delete(id)
@@ -264,7 +291,10 @@ export class HrusersProfileComponent implements OnInit {
 
   // Avalue the specific user.
 
-  // Shows panel to avalue with skills the selected user.
+  /**
+   * Shows panel to avalue with skills the selected user.
+   * @param username
+   */
   showsUserToAvalue(username: any) {
 
     this.skillsFromUser = []
@@ -323,7 +353,10 @@ export class HrusersProfileComponent implements OnInit {
 
   // Add skills to specific user.
 
-  // It allows the admin to add the selected skill to the user and avalue with a numeric note.
+  /**
+   * It allows the admin to add the selected skill to the user and avalue with a numeric note.
+   * @param s // Skill object
+   */
   addSkillToUser(s:any) {
 
     this.candidateSkill.value = prompt("Que nota le quieres poner a este usuario para la habilidad seleccionada?")
@@ -355,7 +388,10 @@ export class HrusersProfileComponent implements OnInit {
     )
   }
 
-  // Deletes a skill from a candidate.
+  /**
+   * Deletes a skill from a candidate.
+   * @param id
+   */
   deleteCandidateSkill(id:any) {
     if (confirm('Seguro que quieres eliminar la habilidad con ID: ' + id + ' de este usuario?')) {
       this.candidateSkillsService.delete(id)
@@ -372,6 +408,9 @@ export class HrusersProfileComponent implements OnInit {
   }
 
   // Functions to edit the candidatePoitions for the selected user.
+  /**
+   * @param cp
+   */
   editTestDate(cp:CandidatePosition){
     cp.test_date = prompt("En que fecha quieres realizar esta prueba técnica?", "YYYY-MM-DD")
     this.candidatePositionService.updateCandidatePosition(cp.id, cp)
@@ -382,7 +421,9 @@ export class HrusersProfileComponent implements OnInit {
       )
     )
   }
-
+  /**
+   * @param cp
+   */
   editCompletitionDate(cp:CandidatePosition){
     cp.completion_date = prompt("En que fecha se ha completado esta prueba técnica?", "YYYY-MM-DD")
     this.candidatePositionService.updateCandidatePosition(cp.id, cp)
@@ -393,7 +434,9 @@ export class HrusersProfileComponent implements OnInit {
       )
     )
   }
-
+  /**
+   * @param cp
+   */
   editResult(cp:CandidatePosition){
     cp.result = prompt("Con que nota avaluas esta prueba técnica?", "1-10")
     if(cp.result < 0){
@@ -416,7 +459,9 @@ export class HrusersProfileComponent implements OnInit {
 
   // Insert skill.
 
-  // Shows panel to insert a new skill.
+  /**
+   * Shows panel to insert a new skill.
+   */
   showAddSkills() {
     this.showAddUser = false; this.showUserToAvalue = false
     this.submitted = false
@@ -427,7 +472,9 @@ export class HrusersProfileComponent implements OnInit {
     this.showAddSkill = true
   }
 
-  // Registers new skill.
+  /**
+   * Registers new skill.
+   */
   addSkill() {
     this.submitted = false
     this.skillsService.add(this.skillToAdd.name)
@@ -445,7 +492,10 @@ export class HrusersProfileComponent implements OnInit {
 
   // Update skill.
 
-  // Shows panel to edit the selected skill with its information.
+  /**
+   * Shows panel to edit the selected skill with its information.
+   * @param id
+   */
   showsSkillToEdit(id: any) {
     this.showAddUser = false; this.showUserToAvalue = false
     this.submitted = false
@@ -463,7 +513,10 @@ export class HrusersProfileComponent implements OnInit {
       )
   }
 
-  // Saves the new data and updates the skill.
+  /**
+   * Saves the new data and updates the skill.
+   * @param id
+   */
   updateSkill(id: any) {
     this.submitted = false
     this.showSkillToEdit = true
@@ -484,7 +537,10 @@ export class HrusersProfileComponent implements OnInit {
       );
   }
 
-  // Delete skill.
+  /**
+   * Delete skill.
+   * @param id
+   */
   deleteSkill(id: any) {
     if (confirm('Seguro que quieres eliminar la habilidad con la ID: ' + id + '?')) {
       this.skillsService.delete(id)

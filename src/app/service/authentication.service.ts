@@ -10,9 +10,20 @@ export class User {
   providedIn: "root"
 })
 export class AuthenticationService {
+
+  /**
+   * Default constructor.
+   * @param httpClient
+   */
   constructor(private httpClient: HttpClient) { }
-  // Provide username and password for authentication, and once authentication is successful,
-  //store JWT token in session
+
+  /**
+   * Provide username and password for authentication, and once authentication is successful,
+   * store JWT token in session.
+   * @param username
+   * @param password
+   * @returns
+   */
   authenticate(username: any, password: any) {
     return this.httpClient
       .post<any>("https://team3-c6-project.herokuapp.com/login", { username, password })
@@ -26,29 +37,21 @@ export class AuthenticationService {
       );
   }
 
+  /**
+   * Checks if the user if logged.
+   * @returns
+   */
   isUserLoggedIn() {
     let user = sessionStorage.getItem("username");
     // console.log(!(user === null));
     return !(user === null);
   }
 
+  /**
+   * Logs out the user by clearing the username from the session storage.
+   */
   logOut() {
     sessionStorage.removeItem("username");
   }
 
-  // isAdmin() {
-  //   let username = sessionStorage.getItem("username");
-  //   console.log("USERNAME: " + username)
-  //   // return this.httpClient.get("https://team3-c6-project.herokuapp.com/api/candidates/username/" + username)
-  //   //       .subscribe(
-  //   //         result => {
-  //   //           console.log("RESULT: " + result)
-  //   //         },
-  //   //         error => {
-  //   //           console.log("ERROR: " + error.message())
-  //   //         }
-
-  //   //       )
-  //   return true
-  // }
 }

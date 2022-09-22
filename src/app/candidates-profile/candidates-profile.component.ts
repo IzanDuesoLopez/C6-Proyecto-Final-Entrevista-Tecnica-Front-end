@@ -13,9 +13,17 @@ import { Skill } from '../models/skill.model';
 })
 export class CandidatesProfileComponent implements OnInit {
 
-  constructor(private candidatePositionService: CandidatePositionService,
-    private candidateSkillService: CandidateSkillsService) { }
+  /**
+   * Default constructor.
+   * @param candidatePositionService
+   * @param candidateSkillService
+   */
+  constructor(
+    private candidatePositionService: CandidatePositionService,
+    private candidateSkillService: CandidateSkillsService
+  ) { }
 
+  // Variables
   skills_completas?: Skill[];
   skillCandidates?: CandidateSkill[];
   skillCandidatesFinales?: CandidateSkill[];
@@ -41,13 +49,18 @@ export class CandidatesProfileComponent implements OnInit {
 
   // Comprobaciones
   mostrar_posiciones_usuario: any;
-  mostrar_skills:any;
-
+  mostrar_skills: any;
+  /**
+   * Function that executes when component its loaded.
+   */
   ngOnInit(): void {
     this.getCandidatePositions();
     this.getCandidateSkills();
   }
 
+  /**
+   * Get skills of the current logged user.
+   */
   getCandidateSkills(): void {
     let j = 0; // Contador
 
@@ -73,6 +86,9 @@ export class CandidatesProfileComponent implements OnInit {
     )
   }
 
+  /**
+   * Get positions of the current logged user.
+   */
   getCandidatePositions(): void {
     let j = 0; // Contador
 
@@ -99,6 +115,10 @@ export class CandidatesProfileComponent implements OnInit {
     )
   }
 
+  /**
+   * Executes when pressing the delete button of one of the positions, asks for confirmation first.
+   * @param id
+   */
   deletePorId(id: any): void {
     if (confirm("¿Seguro que quieres desapuntarte de la candidatura?")) {
       this.candidatePositionService.deleteById(id).subscribe(

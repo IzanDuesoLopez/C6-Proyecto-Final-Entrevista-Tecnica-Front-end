@@ -9,12 +9,20 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent implements OnInit {
 
+  /**
+   * Default constructor.
+   * @param authentocationService
+   * @param router
+   */
   constructor(
     private authentocationService: AuthenticationService,
     private router: Router) {
 
   }
 
+  /**
+   * Logs out the current user and redirects to login.
+   */
   ngOnInit() {
     this.authentocationService.logOut();
     this.router.navigate(['login']);

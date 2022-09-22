@@ -7,8 +7,17 @@ import { AuthenticationService } from './authentication.service';
 })
 export class BasicAuthHtppInterceptorService implements HttpInterceptor {
 
+  /**
+   * Default constructor.
+   */
   constructor() { }
 
+  /**
+   * Checks the veracity of the token of the auth user.
+   * @param req
+   * @param next
+   * @returns
+   */
   intercept(req: HttpRequest<any>, next: HttpHandler) {
 
     if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {

@@ -24,6 +24,7 @@
             <button type="button" class="btn btn-primary mt-2" (click)="showUsers()">Usuarios <i class="bi bi-people-fill"></i></button>&nbsp;
             <button type="button" class="btn btn-primary mt-2" (click)="showSkills()">Habilidades <i class="bi bi-lightning-charge-fill"></i></button>
 
+            <!-- Shows users panels when clicked 'Usuarios' button. -->
             <div class="row" *ngIf="showUser">
               <div class="col-12">
                 <div class="izq mb-1">
@@ -69,6 +70,7 @@
               </div>
             </div>
 
+            <!-- Shows panel to edit the selected user of the table of users when clicked the green icon to edit. -->
             <div class="row mt-3 text-start" *ngIf="showUserToEdit">
               <div class="col">
                 <div class="submit-form">
@@ -96,6 +98,7 @@
               </div>
             </div>
 
+            <!-- Shows panel to add new user when clicked 'Anadir usuario' button from users table. -->
             <div class="row mt-3 text-start" *ngIf="showAddUser">
               <div class="col">
                 <div class="submit-form">
@@ -123,6 +126,7 @@
               </div>
             </div>
 
+            <!-- Shows panel to avalue the selected user of the table of users when clicked the blue icon to view. -->
             <div class="row ofscroll" *ngIf="showUserToAvalue">
               <div class="col">
 
@@ -240,6 +244,7 @@
               </ng-container>
             </div>
 
+            <!-- Shows skills panels when clicked 'Habilidades' button. -->
             <div class="row" *ngIf="showSkill">
               <div class="col ofscroll">
                 <div class="izq mb-1">
@@ -273,6 +278,7 @@
               </div>
             </div>
 
+            <!-- Shows panel to edit the selected skill of the table of skills when clicked the green icon to edit. -->
             <div class="row mt-3 text-start" *ngIf="showSkillToEdit">
               <div class="col">
                 <div class="submit-form">
@@ -288,6 +294,7 @@
               </div>
             </div>
 
+            <!-- Shows panel to add new skill when clicked 'Anadir habilidad' button from skills table. -->
             <div class="row mt-3 text-start" *ngIf="showAddSkill">
               <div class="col">
                 <div class="submit-form">
