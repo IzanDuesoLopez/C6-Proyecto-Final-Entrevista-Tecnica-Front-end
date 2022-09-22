@@ -13,6 +13,7 @@ import { UsersService } from 'src/app/service/users.service';
 })
 export class PositionListComponent implements OnInit {
 
+  // Class variables
   imagenesPosiciones: any[] = ['../../../assets/img/Posiciones.png', '../../../assets/img/Logo.png']
 
   nom_usuario_temp: any;
@@ -39,15 +40,28 @@ export class PositionListComponent implements OnInit {
   };
   submitted = false;
 
+  /**
+   * Constructor with parameters
+   * @param positionService
+   * @param candidatePositionService
+   * @param router
+   * @param userService
+   */
   constructor(private positionService: PositionService,
     private candidatePositionService: CandidatePositionService,
     private router: Router,
     private userService: UsersService) { }
 
+  /**
+   * Function that runs when the component instanciates
+   */
   ngOnInit(): void {
     this.retrievePositions();
   }
 
+  /**
+   * Method that retrieve positions
+   */
   retrievePositions(): void {
     this.positionService.getAll()
       .subscribe(
@@ -61,12 +75,20 @@ export class PositionListComponent implements OnInit {
       )
   }
 
+  /**
+   * Method that refresh the position list
+   */
   refreshList(): void {
     this.retrievePositions();
     this.currentPosition = {};
     this.currentIndex = -1;
   }
 
+  /**
+   * Method to ser the active position
+   * @param position
+   * @param index
+   */
   setActivePosition(position: Position, index: number): void {
     this.currentPosition = position;
     this.currentIndex = index;
@@ -74,6 +96,9 @@ export class PositionListComponent implements OnInit {
     //this.router.navigateByUrl('/profile')
   }
 
+  /**
+   * Method to search by title
+   */
   searchTitle(): void {
     this.buscar = true;
 
@@ -93,6 +118,10 @@ export class PositionListComponent implements OnInit {
       );
   }
 
+  /**
+   * Method that saves the candidate position
+   * @param i
+   */
   saveCandidatePosition(i: any): void {
     this.nom_usuario_temp = sessionStorage.getItem("username");
 
@@ -140,6 +169,9 @@ export class PositionListComponent implements OnInit {
 
 
 
+  /**
+   * Method to create a new candidate position
+   */
   newCandidatePosition(): void {
     this.submitted = false;
     this.candidatePosition = {

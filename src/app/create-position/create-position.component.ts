@@ -11,6 +11,8 @@ import { UsersService } from '../service/users.service';
 })
 export class CreatePositionComponent implements OnInit {
 
+  // Class variables
+
   position: Position = {
     title: '',
     description: '',
@@ -20,11 +22,20 @@ export class CreatePositionComponent implements OnInit {
   cargando = false;
   nom_usuario_temp: any;
 
+  /**
+   * Constructor that instanciates the following objects
+   * @param positionService
+   * @param router
+   * @param userService
+   */
   constructor(private positionService: PositionService, private router: Router, private userService: UsersService) { }
 
   ngOnInit(): void {
   }
 
+  /**
+   * Method to save the position that is created
+   */
   savePosition(): void {
 
     this.nom_usuario_temp = sessionStorage.getItem("username");
@@ -57,6 +68,9 @@ export class CreatePositionComponent implements OnInit {
     )
   }
 
+  /**
+   * Method to create a new position
+   */
   newPosition(): void {
     this.submitted = false;
     this.position = {
