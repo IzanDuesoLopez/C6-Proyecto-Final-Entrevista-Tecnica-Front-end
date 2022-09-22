@@ -10,10 +10,18 @@ import { UsersService } from '../service/users.service';
 })
 export class NavbarComponent implements OnInit {
 
+  // Class variables
   username:any;
   user:any;
   es_admin = false;
 
+  /**
+   * Constructor class that instanciates the login and user service
+   * @param route
+   * @param router
+   * @param loginService
+   * @param usersService
+   */
   constructor(
     private route:ActivatedRoute,
     private router: Router,
@@ -21,6 +29,10 @@ export class NavbarComponent implements OnInit {
     private usersService:UsersService
   ) { }
 
+  /**
+   * When the navbar is instanciated, we find the username and check if its
+   * or not the admin role
+   */
   ngOnInit(): void {
     this.username = sessionStorage.getItem("username");
 
@@ -40,6 +52,9 @@ export class NavbarComponent implements OnInit {
     )
   }
 
+  /**
+   * We redirect the user depending of his role in the redirectProfileType method
+   */
   redirectProfileType(){
     this.username = sessionStorage.getItem("username");
 

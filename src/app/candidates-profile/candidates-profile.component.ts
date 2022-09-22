@@ -14,16 +14,14 @@ import { Skill } from '../models/skill.model';
 export class CandidatesProfileComponent implements OnInit {
 
   /**
-   * Default constructor.
+   * Class constructor that instanciates the following objects
    * @param candidatePositionService
    * @param candidateSkillService
    */
-  constructor(
-    private candidatePositionService: CandidatePositionService,
-    private candidateSkillService: CandidateSkillsService
-  ) { }
+  constructor(private candidatePositionService: CandidatePositionService,
+    private candidateSkillService: CandidateSkillsService) { }
 
-  // Variables
+  // Class variables
   skills_completas?: Skill[];
   skillCandidates?: CandidateSkill[];
   skillCandidatesFinales?: CandidateSkill[];
@@ -47,11 +45,14 @@ export class CandidatesProfileComponent implements OnInit {
 
   search_positions = '';
 
-  // Comprobaciones
+  // Checks
   mostrar_posiciones_usuario: any;
-  mostrar_skills: any;
+  mostrar_skills:any;
+
   /**
-   * Function that executes when component its loaded.
+   * Method that runs when the candidates-profile components is instanciated. We call
+   * getCandidatePositions() method, tha retrieves the candidates positions.
+   * Also we call the getCandidateSkills(), that retrieves the candidateSkills in real time run.
    */
   ngOnInit(): void {
     this.getCandidatePositions();
@@ -59,7 +60,8 @@ export class CandidatesProfileComponent implements OnInit {
   }
 
   /**
-   * Get skills of the current logged user.
+   * Method that retrieves the candidate skills by the user
+   * that is logged in the web application
    */
   getCandidateSkills(): void {
     let j = 0; // Contador
@@ -87,7 +89,8 @@ export class CandidatesProfileComponent implements OnInit {
   }
 
   /**
-   * Get positions of the current logged user.
+   * Method that retrieves the candidate positions by the user
+   * who is logged in the web application
    */
   getCandidatePositions(): void {
     let j = 0; // Contador
@@ -116,7 +119,7 @@ export class CandidatesProfileComponent implements OnInit {
   }
 
   /**
-   * Executes when pressing the delete button of one of the positions, asks for confirmation first.
+   * Method to delete a specific job position by an specific id
    * @param id
    */
   deletePorId(id: any): void {

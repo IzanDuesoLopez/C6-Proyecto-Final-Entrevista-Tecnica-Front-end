@@ -8,14 +8,21 @@ import { RegisterService } from '../service/register.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  // Class variables
   name = ''
   surname = ''
   username = ''
   password = ''
   invalidRegister = false
 
+  // Input error
   @Input() error: string | null = "";
 
+  /**
+   * Constructor from the class that instanciates the following objects
+   * @param router
+   * @param registerservice
+   */
   constructor(
     private router: Router,
     private registerservice: RegisterService
@@ -24,6 +31,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Method to register a user, getting the ngModel variables
+   */
   registerUser() {
     console.log(this.username, this.password);
     (this.registerservice.register(this.name, this.surname, this.username, this.password).subscribe(
