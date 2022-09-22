@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CandidateSkill } from '../models/candidate-skill.model';
 
-const baseUrlCandidateSkills = 'https://team3-c6-project.herokuapp.com/api/candidateSkills';
+const baseUrlCandidateSkills = 'http://localhost:8080/candidateSkills';
 
 @Injectable({
   providedIn: 'root'

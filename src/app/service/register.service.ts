@@ -19,6 +19,6 @@ export class RegisterService {
       }
     ]
     return this.httpClient
-      .post<any>("https://team3-c6-project.herokuapp.com/register", { name, surname, username, password, enabled, roles });
+      .post<any>("http://localhost:8080/register", { name, surname, username, password, enabled, roles });
   }
 }

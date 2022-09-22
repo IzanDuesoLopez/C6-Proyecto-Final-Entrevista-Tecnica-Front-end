@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 
-const baseUrl = 'https://team3-c6-project.herokuapp.com/api/candidates';
+const baseUrl = 'http://localhost:8080/api/candidates';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class UsersService {
       }
     ]
     return this.http
-      .post<any>("https://team3-c6-project.herokuapp.com/register", { name, surname, username, password, enabled, roles });
+      .post<any>("http://localhost:8080/register", { name, surname, username, password, enabled, roles });
   }
 
   update(id:any, data:any): Observable<any> {

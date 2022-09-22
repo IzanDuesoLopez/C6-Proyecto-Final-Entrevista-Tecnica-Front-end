@@ -15,7 +15,7 @@ export class AuthenticationService {
   //store JWT token in session
   authenticate(username: any, password: any) {
     return this.httpClient
-      .post<any>("https://team3-c6-project.herokuapp.com/login", { username, password })
+      .post<any>("http://localhost:8080/login", { username, password })
       .pipe(
         map(userData => {
           sessionStorage.setItem("username", username);
