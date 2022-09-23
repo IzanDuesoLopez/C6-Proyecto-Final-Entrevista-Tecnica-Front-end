@@ -1,0 +1,186 @@
+.botonusuario {
+  background-color: #00a6ff;
+  color: white;
+  border: white;
+  height: 130px;
+  width: 130px;
+  border: 3px solid transparent;
+  box-shadow: 0px 2px 6px rgb(0, 0, 0);
+  transition: all 0.2s ease;
+  border-radius: 100%;
+}
+
+.botonusuario:hover {
+  background-color: white;
+  color: #00a6ff;
+  border: 3px solid #00a6ff;
+  height: 130px;
+  width: 130px;
+  box-shadow: 0px 2px 6px rgb(0, 0, 0);
+  transition: all 0.2s ease;
+  border-radius: 100%;
+}
+
+.bi-pc-display-horizontal {
+  font-size: 2rem;
+  color: rgb(235, 88, 88);
+}
+
+.bi-motherboard-fill {
+  font-size: 2rem;
+  color: rgb(112, 207, 112);
+}
+
+.bi-cpu-fill {
+  font-size: 2rem;
+  color: rgb(167, 167, 255);
+}
+
+.bi-pc {
+  font-size: 2rem;
+  color: rgb(235, 235, 127)
+}
+
+.skill {
+  margin-bottom: 0rem !important;
+}
+
+.subir {
+  margin-top: -2rem !important;
+}
+
+.subirindice {
+  margin-top: -5rem !important;
+}
+
+.botonvisualizar {
+  background-color: #008CBA;
+  padding: 5px 10px;
+  border: none;
+  color: white;
+  transition-duration: 0.4s;
+  border: 2px solid transparent;
+}
+
+.botonvisualizar:hover {
+  border: none;
+  padding: 5px 10px;
+  transition-duration: 0.4s;
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.botoneditar {
+  background-color: rgb(0, 212, 89);
+  padding: 5px 10px;
+  border: none;
+  color: white;
+  transition-duration: 0.4s;
+  border: 2px solid transparent;
+}
+
+.botoneditar:hover {
+  border: none;
+  padding: 5px 10px;
+  transition-duration: 0.4s;
+  background-color: white;
+  color: black;
+  border: 2px solid rgb(0, 212, 89);
+}
+
+.botoneliminar {
+  background-color: red;
+  padding: 5px 10px;
+  border: none;
+  color: white;
+  transition-duration: 0.4s;
+  border: 2px solid transparent;
+}
+
+.botoneliminar:hover {
+  border: none;
+  padding: 5px 10px;
+  transition-duration: 0.4s;
+  background-color: white;
+  color: black;
+  border: 2px solid red
+}
+
+.bi-person-circle {
+  font-size: 4rem;
+}
+
+.bi-linkedin {
+  color: blue;
+  font-size: 1rem;
+}
+
+.izq {
+  text-align: left;
+}
+
+.bi-browser-edge {
+  color: rgb(61, 211, 161);
+}
+
+
+.fondotabla {
+  background-color: rgb(176, 208, 255);
+  border: 1px solid black;
+}
+
+th {
+  background-color: rgb(128, 178, 253);
+  border: 1px solid blue;
+}
+
+td {
+  border: 1px solid blue;
+}
+
+.skillFloatUl {
+  list-style-type: none;
+}
+
+.skillFloat {
+  border: solid 1px rgb(165, 165, 165);
+  border-radius: 50px;
+  margin: 5px;
+  padding: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  float: left;
+}
+
+.skillFloat button {
+  border-radius: 50%;
+  content: "\00d7";
+  background-color: red;
+  border: none;
+  color: white;
+  transition-duration: 0.4s;
+  border: 1px solid red;
+  padding: 0px 7px;
+}
+
+.skillFloat button:hover {
+  border: none;
+  transition-duration: 0.4s;
+  background-color: white;
+  color: black;
+  border: 1px solid red
+}
+
+.colorLightGray{
+  color: rgb(165, 165, 165);
+}
+
+@media screen and (max-width: 650px) {
+  .ofscroll{
+    overflow: scroll;
+  }
+  .search{
+    width: 100px;
+  }
+}

@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <div class="col-ms-12 col-md-4 col-12">
+
+      <div class="card mt-4 mb-4 text-center" style="height: 20rem;">
+        <div class="card-body">
+          <button type="button" class="botonusuario mb-3"><i class="bi bi-person-circle"></i></button>
+          <h5 class="card-title">{{usuario.username}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Full Stack Developer</h6>
+          <p class="card-text">Cataluña, España</p>
+          <button class="btn"><i class="bi bi-linkedin"></i> LinkedIn</button>
+          <button class="btn"><i class="bi bi-browser-edge"></i> Website</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-8 col-ms-12 mb-3">
+
+
+      <div class="card mt-4 crud">
+
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <button type="button" class="btn btn-danger" style="width: 5rem;" (click)="mostrar_posiciones_usuario = true; mostrar_skills = false">Mis posiciones <i class="bi bi-file-earmark-person-fill"></i></button>
+          <button type="button" class="btn btn-warning" style="width: 5rem;" (click)="mostrar_posiciones_usuario = false; mostrar_skills = true">Mis skills <i class="bi bi-lightning-charge-fill"></i></button>
+        </div>
+
+        <div class="card-body">
+          <div class="text-end subir mb-2">
+            <input type="text" class="search mt-4" placeholder="Buscar..." aria-label="Search" [(ngModel)]="search_positions">
+          </div>
+
+          <div class="container text-center" *ngIf="!mostrar_skills">
+            <div class="row ofscroll">
+              <table  class="table table-success table-striped">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Título</th>
+                  <th scope="col">Vacante</th>
+                  <th scope="col">Calificación</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Eliminar posición</th>
+                </tr>
+                <ng-container *ngFor="let u of candidatePositionsFinales">
+                  <tr *ngIf="u.id == search_positions || (u.position.title | lowercase).includes((search_positions | lowercase)) || (u.position.description | lowercase).includes((search_positions | lowercase))">
+                    <th scope="row">{{ u.id }}</th>
+                    <td>{{ u.position.title }}</td>
+                    <td>{{ u.position.description }}</td>
+                    <td>{{ u.result }}</td>
+                    <td>{{ u.test_date }}</td>
+                    <td><button type="button" class="botoneliminar" (click)="deletePorId(u.id)"><i class="bi bi-person-x-fill"></i></button></td>
+                  </tr>
+                </ng-container>
+              </table>
+            </div>
+          </div>
+
+          <div class="container text-center" *ngIf="mostrar_skills">
+            <div class="row ofscroll">
+              <table  class="table table-success table-striped">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Nota</th>
+                  <th scope="col">Valor</th>
+                </tr>
+                <ng-container *ngFor="let s of skillCandidatesFinales">
+                  <tr *ngIf="s.id == search_positions || (s.skill?.name | lowercase).includes((search_positions | lowercase))">
+                    <th scope="row">{{ s.id }}</th>
+                    <td>{{ s.skill?.name }}</td>
+                    <td>{{ s.notes }}</td>
+                    <td>{{ s.value }}</td>
+                  </tr>
+                </ng-container>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

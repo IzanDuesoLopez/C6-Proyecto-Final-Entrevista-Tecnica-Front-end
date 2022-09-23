@@ -1,0 +1,32 @@
+import { Injectable } from '@angular/core';
+import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
+import { AuthenticationService } from './authentication.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BasicAuthHtppInterceptorService implements HttpInterceptor {
+
+  /**
+   * Default constructor.
+   */
+  constructor() { }
+
+  /**
+   * Checks the veracity of the token of the auth user.
+   * @param req
+   * @param next
+   * @returns
+   */
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+
+    if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
+      req = req.clone({
+        setHeaders: { Authorization: "" + sessionStorage.getItem('token') }
+      })
+    }
+
+    return next.handle(req);
+
+  }
+}

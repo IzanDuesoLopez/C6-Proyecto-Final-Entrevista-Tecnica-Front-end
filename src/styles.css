@@ -1,0 +1,25 @@
+
+@import './app/login/login.component.css';
+@import './app/register/register.component.css';
+@import './app/create-position/create-position.component.css';
+@import './app/position-page/position-page.component.css';
+@import './app/search-page/search-page.component.css';
+@import './app/landing-page/landing-page.component.css';
+@import './app/candidates-profile/candidates-profile.component.css';
+
+
+html {
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px; /* Margin bottom by footer height */
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

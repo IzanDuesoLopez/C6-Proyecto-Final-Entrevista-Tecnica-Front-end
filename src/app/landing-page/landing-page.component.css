@@ -1,0 +1,86 @@
+.botonlanding {
+  background-color: rgb(21, 122, 255);
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  text-align: left;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+  margin-bottom: 10rem !important;
+}
+
+.botonlanding:hover {
+  background-color: rgb(21, 122, 255);
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  text-align: left;
+  text-decoration: none;
+  font-size: 18px;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+  margin-bottom: 10rem !important;
+}
+
+.titulo {
+  text-align: left;
+  font-weight: 600;
+  margin-top: 10rem !important;
+  color: white;
+}
+
+.subtitulo {
+  text-align: left;
+  font-weight: 300;
+  margin-bottom: 2rem !important;
+  color: white;
+}
+
+.fondocol {
+  background-image: url(../../assets/img/fondo.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-top: 5rem !important;
+}
+
+.card2 {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.452);
+}
+
+.card3 {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.452);
+}
+
+
+@media screen and (max-width: 650px) {
+  .fondocol {
+    display: none;
+  }
+
+  .imagen_custom{
+    display: none;
+  }
+
+  .del{
+    display: none;
+  }
+}
+
+.card-title-custom{
+ margin-top: -1.5rem !important;
+}
+
+.imagen_custom{
+  width: 80%;
+  margin-top: -7rem !important;
+}
+
+.separacion_row{
+  margin-top: 8rem !important;
+}
