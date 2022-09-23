@@ -1,2 +1,3 @@
-# C6-Proyecto-Final-Entrevista-Tecnica-Front-end
-# https://20-09-22-clean-version.d1oz9f7x4yvhix.amplifyapp.com/  
+# T-Jobs Front-end
+## Angular Front-end URL: https://string-dates.d341gdb4nz9oai.amplifyapp.com/  
+
