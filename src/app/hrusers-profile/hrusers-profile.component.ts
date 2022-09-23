@@ -128,6 +128,9 @@ export class HrusersProfileComponent implements OnInit {
       .subscribe(
         result => {
           this.user = result;
+          if(!(this.user.roles[0].name=="ADMIN")){
+            this.router.navigate(['/home'])
+          }
         },
         error => {
           console.log(error)
@@ -412,9 +415,10 @@ export class HrusersProfileComponent implements OnInit {
    * @param cp
    */
   editTestDate(cp:CandidatePosition){
-    let auxDate = new Date()
-    let adminDate = prompt("En que fecha quieres realizar esta prueba técnica?", "yyyy-MM-dd hh:mm")
-    cp.test_date
+    let adminDate:any = ''
+    adminDate = prompt("En que fecha quieres realizar esta prueba técnica?", "yyyy-MM-dd hh:mm")
+    cp.test_date = new Date(adminDate.substring(0, 4), parseInt(adminDate.substring(5, 7)) - 1, adminDate.substring(8, 10), adminDate.substring(11, 13), adminDate.substring(14, 16))
+    cp.test_date.setHours(parseInt(cp.test_date.getHours()) + 2)
     this.candidatePositionService.updateCandidatePosition(cp.id, cp)
     .subscribe(
       response => (
@@ -427,7 +431,10 @@ export class HrusersProfileComponent implements OnInit {
    * @param cp
    */
   editCompletitionDate(cp:CandidatePosition){
-    cp.completion_date = prompt("En que fecha se ha completado esta prueba técnica?", "YYYY-MM-DD")
+    let adminDate:any = ''
+    adminDate = prompt("En que fecha se ha completado esta prueba técnica?", "yyyy-MM-dd hh:mm")
+    cp.completion_date = new Date(adminDate.substring(0, 4), parseInt(adminDate.substring(5, 7)) - 1, adminDate.substring(8, 10), adminDate.substring(11, 13), adminDate.substring(14, 16))
+    cp.completion_date.setHours(parseInt(cp.completion_date.getHours()) + 2)
     this.candidatePositionService.updateCandidatePosition(cp.id, cp)
     .subscribe(
       response => (

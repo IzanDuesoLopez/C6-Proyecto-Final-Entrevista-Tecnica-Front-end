@@ -35,7 +35,7 @@ export class PositionListComponent implements OnInit {
     registry_date: new Date(),
     test_date: null,
     completion_date: null,
-    result: '',
+    result: null,
     candidate: '',
     position: ''
   };
@@ -138,9 +138,8 @@ export class PositionListComponent implements OnInit {
           datosposition => {
             this.datos_posicion = datosposition;
             this.posicion_temp = this.datos_posicion[0];
-            this.candidatePosition.registry_date = this.datePipe.transform(this.candidatePosition.registry_date, 'yyyy-MM-dd');
-            console.log("================================")
-            console.log(this.candidatePosition.registry_date)
+            this.candidatePosition.registry_date.setHours(parseInt(this.candidatePosition.registry_date.getHours()) + 2)
+
             const datos = {
               registry_date: this.candidatePosition.registry_date,
               test_date: null,
@@ -149,8 +148,7 @@ export class PositionListComponent implements OnInit {
               candidate: this.datos_candidato,
               position: this.posicion_temp
             };
-            console.log("================================")
-            console.log(datos.registry_date)
+
             this.candidatePositionService.createCandidatePosition(datos).subscribe(
               response => {
                 console.log(response);
