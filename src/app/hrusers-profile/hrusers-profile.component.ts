@@ -128,6 +128,9 @@ export class HrusersProfileComponent implements OnInit {
       .subscribe(
         result => {
           this.user = result;
+          if(!(this.user.roles[0].name=="ADMIN")){
+            this.router.navigate(['/home'])
+          }
         },
         error => {
           console.log(error)

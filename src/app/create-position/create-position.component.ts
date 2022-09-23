@@ -22,6 +22,9 @@ export class CreatePositionComponent implements OnInit {
   cargando = false;
   nom_usuario_temp: any;
 
+  username:any;
+  user:any;
+
   /**
    * Constructor that instanciates the following objects
    * @param positionService
@@ -31,6 +34,20 @@ export class CreatePositionComponent implements OnInit {
   constructor(private positionService: PositionService, private router: Router, private userService: UsersService) { }
 
   ngOnInit(): void {
+    this.username = sessionStorage.getItem("username");
+
+    this.userService.findByUsername(this.username)
+    .subscribe(
+      result => {
+        this.user = result;
+        if(!(this.user.roles[0].name=="ADMIN")){
+          this.router.navigate(['/home'])
+        }
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   /**

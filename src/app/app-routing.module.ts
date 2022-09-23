@@ -40,10 +40,6 @@ const routes: Routes = [
     component: SearchPageComponent
   },
   {
-    path: 'position',
-    component: PositionPageComponent
-  },
-  {
     path:'about-us',
     component:AboutUsComponent
   },
@@ -62,10 +58,6 @@ const routes: Routes = [
   {
     path:'positions',
     component:PositionListComponent
-  },
-  {
-    path:'positions/:title',
-    component:PositionDetailsComponent
   }
 ];
 
