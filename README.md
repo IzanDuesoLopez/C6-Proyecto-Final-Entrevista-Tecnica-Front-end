@@ -1,11 +1,11 @@
 # T-Jobs Front-end
-## Angular Front-end URL: https://string-dates.d341gdb4nz9oai.amplifyapp.com/  
+## Angular Front-end URL: https://deploy-23-09-22.d3o4e5d59xwnf7.amplifyapp.com/   
 ![image](https://user-images.githubusercontent.com/108723551/191933433-b52279db-2129-4dd8-b515-f3ee94f89215.png)
 
 # Authentication
 ## Log-in
 ```
-[/login](https://string-dates.d341gdb4nz9oai.amplifyapp.com/login)
+[/login](https://deploy-23-09-22.d3o4e5d59xwnf7.amplifyapp.com/login)
 Default users:  
   [ADMIN]  
   - Username: izan | Password: 1234  
@@ -16,27 +16,27 @@ Default users:
 ```
 ## Register
 ```
-[/register] https://string-dates.d341gdb4nz9oai.amplifyapp.com/register
+[/register] https://deploy-23-09-22.d3o4e5d59xwnf7.amplifyapp.com/register
 ```
 ## Log-out
 ```
-[/logout] https://string-dates.d341gdb4nz9oai.amplifyapp.com/logout 
+[/logout] https://deploy-23-09-22.d3o4e5d59xwnf7.amplifyapp.com/logout 
 ```
 
 # Views
 ## Accessible for everyone
 ```
-[/home] https://string-dates.d341gdb4nz9oai.amplifyapp.com/home 
-[/about-us] https://string-dates.d341gdb4nz9oai.amplifyapp.com/about-us 
+[/home] https://deploy-23-09-22.d3o4e5d59xwnf7.amplifyapp.com/home 
+[/about-us] https://deploy-23-09-22.d3o4e5d59xwnf7.amplifyapp.com/about-us 
 ```
 ## Only logged users
 ```
-[/profile] https://string-dates.d341gdb4nz9oai.amplifyapp.com/profile 
-[/positions] https://string-dates.d341gdb4nz9oai.amplifyapp.com/positions 
+[/profile] https://deploy-23-09-22.d3o4e5d59xwnf7.amplifyapp.com/profile 
+[/positions] https://deploy-23-09-22.d3o4e5d59xwnf7.amplifyapp.com/positions 
 ```
 ## Only admin users
 ```
-[/create-position] https://string-dates.d341gdb4nz9oai.amplifyapp.com/create-position 
-[/profile-admin] https://string-dates.d341gdb4nz9oai.amplifyapp.com/profile-admin 
+[/create-position] https://deploy-23-09-22.d3o4e5d59xwnf7.amplifyapp.com/create-position 
+[/profile-admin] https://deploy-23-09-22.d3o4e5d59xwnf7.amplifyapp.com/profile-admin 
 ```
 ![image](https://user-images.githubusercontent.com/108723592/191925045-2f5e9fa8-be91-45eb-919a-ef2985d31b64.png)
