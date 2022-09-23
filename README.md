@@ -1,6 +1,6 @@
 # T-Jobs Front-end
 ## Angular Front-end URL: https://string-dates.d341gdb4nz9oai.amplifyapp.com/  
-![sapo(1)](https://user-images.githubusercontent.com/108723592/191933217-4ae0db70-81ae-4e78-8208-6fb4d21dcd21.png)
+![image](https://user-images.githubusercontent.com/108723551/191933433-b52279db-2129-4dd8-b515-f3ee94f89215.png)
 
 # Authentication
 ## Log-in
