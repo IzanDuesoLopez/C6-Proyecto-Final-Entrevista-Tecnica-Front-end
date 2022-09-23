@@ -138,6 +138,7 @@ export class PositionListComponent implements OnInit {
           datosposition => {
             this.datos_posicion = datosposition;
             this.posicion_temp = this.datos_posicion[0];
+            this.candidatePosition.registry_date.setHours(parseInt(this.candidatePosition.registry_date.getHours()) + 2)
 
             const datos = {
               registry_date: this.candidatePosition.registry_date,
