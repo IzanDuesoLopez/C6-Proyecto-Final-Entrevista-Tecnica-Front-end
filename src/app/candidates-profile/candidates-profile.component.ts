@@ -108,8 +108,10 @@ export class CandidatesProfileComponent implements OnInit {
         let candidatePositionsAux:any = []
 
         for (let i = 0; i < this.candidatePositionsFinales.length; i++){
-          this.candidatePositionsFinales[j].test_date = this.candidatePositionsFinales[j].test_date.substring(0, 10) + ' ' + this.candidatePositionsFinales[j].test_date.substring(11, 16)
-          candidatePositionsAux.push(this.candidatePositionsFinales[i])
+          if(this.usuario.username == this.candidatePositionsFinales[i].candidate.username){
+            this.candidatePositionsFinales[j].test_date = this.candidatePositionsFinales[j].test_date.substring(0, 10) + ' ' + this.candidatePositionsFinales[j].test_date.substring(11, 16)
+            candidatePositionsAux.push(this.candidatePositionsFinales[i])
+          }
         }
 
         this.candidatePositionsFinales = candidatePositionsAux
