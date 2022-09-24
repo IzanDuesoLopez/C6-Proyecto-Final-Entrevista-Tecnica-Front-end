@@ -32,7 +32,7 @@ export class CandidatesProfileComponent implements OnInit {
   currentSkill: CandidateSkill = {};
 
   nom_usuario_temp: any;
-  candidatePositions?: CandidatePosition[];
+  // candidatePositions?: CandidatePosition[];
   candidatePositionsFinales?: CandidatePosition[];
   currentPosition: CandidatePosition = {};
 
@@ -103,19 +103,29 @@ export class CandidatesProfileComponent implements OnInit {
 
     this.candidatePositionService.getAllCandidatesJson().subscribe(
       data => {
-        this.candidatePositions = data;
-        this.candidatePositionsFinales = data;
+        // this.candidatePositions = data;
+        // this.candidatePositionsFinales = data;
 
-        for (let i = 0; i < this.candidatePositions.length; i++) {
-          if (this.usuario.username == this.candidatePositions[i].candidate.username) {
-            this.candidatePositionsFinales[j] = this.candidatePositions[i];
-            this.candidatePositionsFinales[j].test_date = this.candidatePositionsFinales[j].test_date.substring(0, 10) + ' ' + this.candidatePositionsFinales[j].test_date.substring(11, 16)
-            j++;
-          }
+        // for (let i = 0; i < this.candidatePositions.length; i++) {
+        //   if (this.usuario.username == this.candidatePositions[i].candidate.username) {
+        //     this.candidatePositionsFinales[j] = this.candidatePositions[i];
+        //     this.candidatePositionsFinales[j].test_date = this.candidatePositionsFinales[j].test_date.substring(0, 10) + ' ' + this.candidatePositionsFinales[j].test_date.substring(11, 16)
+        //     j++;
+        //   }
+        // }
+
+        // this.candidatePositionsFinales.length = j;
+        //console.log(this.candidatePositionsFinales)
+
+        this.candidatePositionsFinales = data
+        let candidatePositionsAux:any = []
+
+        for (let i = 0; i < this.candidatePositionsFinales.length; i++){
+          this.candidatePositionsFinales[j].test_date = this.candidatePositionsFinales[j].test_date.substring(0, 10) + ' ' + this.candidatePositionsFinales[j].test_date.substring(11, 16)
+          candidatePositionsAux.push(this.candidatePositionsFinales[i])
         }
 
-        this.candidatePositionsFinales.length = j;
-        //console.log(this.candidatePositionsFinales)
+        this.candidatePositionsFinales = candidatePositionsAux
       },
       error => {
         console.log(error);
