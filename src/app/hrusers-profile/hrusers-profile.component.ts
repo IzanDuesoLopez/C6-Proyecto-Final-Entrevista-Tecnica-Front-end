@@ -338,9 +338,6 @@ export class HrusersProfileComponent implements OnInit {
                 let auxArr: any = []
                 for (let i = 0; i < this.candidatePositionsFromUser.length; i++) {
                   if(this.userToAvalue.id == this.candidatePositionsFromUser[i].candidate.id){
-                    if(this.candidatePositionsFromUser[i].registry_date != null || this.candidatePositionsFromUser[i].registry_date != undefined){
-                      this.candidatePositionsFromUser[i].registry_date.setHours(parseInt(this.candidatePositionsFromUser[i].registry_date.getHours()) + 2)
-                    }
                     this.candidatePositionsFromUser[i].registry_date = (this.candidatePositionsFromUser[i].registry_date != null) || (this.candidatePositionsFromUser[i].registry_date != undefined) ? this.candidatePositionsFromUser[i].registry_date.substring(0, 10) + ' ' + this.candidatePositionsFromUser[i].registry_date.substring(11, 16) : ''
                     this.candidatePositionsFromUser[i].test_date = (this.candidatePositionsFromUser[i].test_date != null) || (this.candidatePositionsFromUser[i].test_date != undefined) ? this.candidatePositionsFromUser[i].test_date.substring(0, 10) + ' ' + this.candidatePositionsFromUser[i].test_date.substring(11, 16) : ''
                     this.candidatePositionsFromUser[i].completion_date = (this.candidatePositionsFromUser[i].completion_date != null) || (this.candidatePositionsFromUser[i].completion_date != undefined) ? this.candidatePositionsFromUser[i].completion_date.substring(0, 10) + ' ' + this.candidatePositionsFromUser[i].completion_date.substring(11, 16) : ''
