@@ -97,6 +97,7 @@ export class CandidatesProfileComponent implements OnInit {
    */
   getCandidatePositions(): void {
     let j = 0; // Contador
+    this.candidatePositionsFinales = []
 
     this.usuario.username = sessionStorage.getItem("username");
 
