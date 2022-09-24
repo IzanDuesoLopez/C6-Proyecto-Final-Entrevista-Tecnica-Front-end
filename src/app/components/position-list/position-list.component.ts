@@ -141,7 +141,7 @@ export class PositionListComponent implements OnInit {
             this.candidatePosition.registry_date.setHours(parseInt(this.candidatePosition.registry_date.getHours()))
 
             const datos = {
-              registry_date: this.candidatePosition.registry_date,
+              registry_date: this.candidatePosition.registry_date.toLocaleString("en-US", {timeZone: "Europe/Madrid"}),
               test_date: null,
               completion_date: null,
               result: this.candidatePosition.result,
