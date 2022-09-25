@@ -48,11 +48,12 @@ export class HrusersProfileComponent implements OnInit {
   showAddUser = false;
 
   // Edit specific user.
-  userToEdit: User = {
+  userToEdit: any = {
     id: '',
     name: '',
     surname: '',
     username: '',
+    password: '',
     enabled: '',
     roles: [{}]
   }
@@ -210,7 +211,7 @@ export class HrusersProfileComponent implements OnInit {
    */
   addUser() {
     this.submitted = false
-    this.usersService.add(this.userToAdd.name, this.userToAdd.surname, this.userToAdd.username, '1234')
+    this.usersService.add(this.userToAdd.name, this.userToAdd.surname, this.userToAdd.username, this.userToAddPassword)
       .subscribe(
         response => (
           console.log(response),
@@ -257,6 +258,7 @@ export class HrusersProfileComponent implements OnInit {
       name: this.userToEdit.name,
       surname: this.userToEdit.surname,
       username: this.userToEdit.username,
+      password: this.userToEdit.password,
       roles: this.userToEdit.roles
     };
 
