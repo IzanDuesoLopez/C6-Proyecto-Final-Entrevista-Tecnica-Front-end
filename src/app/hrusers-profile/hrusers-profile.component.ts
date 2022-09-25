@@ -210,7 +210,7 @@ export class HrusersProfileComponent implements OnInit {
    */
   addUser() {
     this.submitted = false
-    this.usersService.add(this.userToAdd.name, this.userToAdd.surname, this.userToAdd.username, this.userToAddPassword)
+    this.usersService.add(this.userToAdd.name, this.userToAdd.surname, this.userToAdd.username, '1234')
       .subscribe(
         response => (
           console.log(response),
